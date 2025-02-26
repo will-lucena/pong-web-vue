@@ -33,3 +33,6 @@ yarn build
 ```sh
 yarn lint
 ```
+
+[Figma file](https://www.figma.com/design/wDpvIkvlIeM1W0p03kI76A/Pong-Web?node-id=0-1&p=f&t=iycRYXC0tTsCHNPK-0)
+password: 12345

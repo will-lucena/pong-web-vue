@@ -82,7 +82,7 @@ import Card from '@/components/card/Card.vue'
 }
 
 .presentation_content h3 {
-  font-family: Source Sans Pro;
+  font-family: 'Source Sans 3';
   font-weight: 400;
   font-size: 32px;
   line-height: 34px;
@@ -122,7 +122,7 @@ import Card from '@/components/card/Card.vue'
 }
 
 .posts_link {
-  font-family: Source Sans Pro;
+  font-family: 'Source Sans 3';
   font-weight: 600;
   font-size: 28px;
   line-height: 34px;
@@ -149,7 +149,7 @@ import Card from '@/components/card/Card.vue'
 
   width: fit-content;
 
-  font-family: Source Sans Pro;
+  font-family: 'Source Sans 3';
   font-weight: 700;
   font-size: 28px;
   line-height: 34px;

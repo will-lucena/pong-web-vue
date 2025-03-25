@@ -44,7 +44,7 @@
       </div>
     </section>
     <section class="copyright">
-      <img src="https://placehold.co/43x49" alt="" />
+      <img src="/src/assets/logo.png" alt="" width="43" height="49" />
       <div class="copyright__content">
         <h3>Pong</h3>
         <p>Copyright © 2025 PONG - Potiguar Indie Games.</p>

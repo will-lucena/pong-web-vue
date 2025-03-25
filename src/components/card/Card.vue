@@ -50,7 +50,7 @@
   color: #181a2a8f;
 }
 
-.card_date > {
+.card_date {
   font-family: Work Sans;
   font-weight: 400;
   font-size: 16px;

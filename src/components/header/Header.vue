@@ -1,8 +1,11 @@
-<script setup></script>
+<script setup>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+</script>
 
 <template>
   <header class="header">
-    <img src="https://placehold.co/190x60" alt="" />
+    <img src="/src/assets/logomarca.png" alt="" width="190" height="60" />
     <nav>
       <ul class="nav_list">
         <li class="nav_list__item">Inicio</li>
@@ -13,7 +16,7 @@
       </ul>
     </nav>
     <button class="community_button">
-      <img src="https://placehold.co/20x20" alt="" />
+      <font-awesome-icon :icon="faWhatsapp" />
       Comunidade Whatsapp
     </button>
   </header>
@@ -54,7 +57,7 @@
 }
 
 .community_button {
-  padding: 8px 16px;
+  padding: 16px;
 
   display: flex;
   flex-direction: row;

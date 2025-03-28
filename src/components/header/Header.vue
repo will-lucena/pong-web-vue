@@ -8,11 +8,18 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
     <img src="/src/assets/logomarca.png" alt="" width="190" height="60" />
     <nav>
       <ul class="nav_list">
-        <li class="nav_list__item">Inicio</li>
-        <li class="nav_list__item">Sobre</li>
-        <li class="nav_list__item">Blog</li>
-        <li class="nav_list__item">Organizadores</li>
-        <li class="nav_list__item">Contato</li>
+        <li class="nav_list__item">
+          <router-link to="/">Inicio</router-link>
+        </li>
+        <li class="nav_list__item">
+          <router-link to="/about">Sobre</router-link>
+        </li>
+        <li class="nav_list__item">
+          <router-link to="/blog">Blog</router-link>
+        </li>
+        <li class="nav_list__item">
+          <router-link to="/contact">Contato</router-link>
+        </li>
       </ul>
     </nav>
     <button class="community_button">

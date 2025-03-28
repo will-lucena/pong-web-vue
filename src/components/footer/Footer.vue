@@ -56,7 +56,7 @@
 <style scoped lang="css">
 .footer {
   box-shadow: 0px -1px 42.3px 0px rgba(0, 0, 0, 0.25);
-  background: #fff;
+  background: #f6f6f7;
 
   display: flex;
   flex-direction: column;
@@ -161,5 +161,62 @@
   line-height: 24px;
 
   color: #3b3c4a;
+}
+
+@media screen and (max-width: 1440px) {
+  .footer {
+    padding: 32px 80px;
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 32px 16px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer {
+    padding: 32px 16px;
+    gap: 20px;
+  }
+
+  .about {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .info {
+    gap: 0;
+  }
+
+  .info > h3,
+  .quick_links > h3,
+  .social_media_links > h3 {
+    font-size: 12px;
+  }
+
+  .info > p {
+    width: 100%;
+  }
+
+  .nav_list {
+    gap: 2px;
+  }
+
+  .info > p,
+  .nav_list__item {
+    font-size: 12px;
+  }
+
+  .copyright {
+    gap: 4px;
+    padding: 32px 0 0 0;
+  }
+
+  .copyright__content > p {
+    font-size: 10px;
+  }
 }
 </style>

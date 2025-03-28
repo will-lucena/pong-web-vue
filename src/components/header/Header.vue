@@ -75,4 +75,49 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
   font-size: 17.3px;
   line-height: 17.3px;
 }
+
+@media screen and (max-width: 1440px) {
+  .header {
+    padding: 32px 80px;
+    gap: 40px;
+  }
+
+  .nav_list__item {
+    font-size: 14px;
+  }
+
+  .community_button {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 32px 16px;
+  }
+
+  .nav_list {
+    gap: 10px;
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header {
+    padding: 32px 16px;
+  }
+
+  .nav_list {
+    gap: 10px;
+    display: none;
+  }
+
+  .nav_list__item {
+    font-size: 12px;
+  }
+
+  .community_button {
+    font-size: 14px;
+  }
+}
 </style>

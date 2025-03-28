@@ -3,49 +3,47 @@ import Card from '@/components/card/Card.vue'
 </script>
 
 <template>
-  <div>
-    <main class="main">
-      <section class="presentation">
-        <div class="presentation_content">
-          <div>
-            <h1>Potiguar Indie Games</h1>
-            <h3>
-              Grupo de desenvolvedores de jogos do Rio Grande do Norte, ajude a consolidar o cenário
-              regional.
-            </h3>
-          </div>
-          <button class="community_button presentation_button">Juntar-se a Comunidade</button>
+  <main class="main">
+    <section class="presentation">
+      <div class="presentation_content">
+        <div>
+          <h1>Potiguar Indie Games</h1>
+          <h3>
+            Grupo de desenvolvedores de jogos do Rio Grande do Norte, ajude a consolidar o cenário
+            regional.
+          </h3>
         </div>
-        <img class="presentation_image" src="https://placehold.co/540x510" alt="" />
-      </section>
+        <button class="community_button presentation_button">Juntar-se a Comunidade</button>
+      </div>
+      <img class="presentation_image" src="https://placehold.co/540x510" alt="" />
+    </section>
 
-      <section class="posts">
-        <h2 class="posts_title">Publicações Recentes</h2>
-        <ul class="posts_list">
-          <li>
-            <Card />
-          </li>
-          <li>
-            <Card />
-          </li>
-          <li>
-            <Card />
-          </li>
+    <section class="posts">
+      <h2 class="posts_title">Publicações Recentes</h2>
+      <ul class="posts_list">
+        <li class="list_item">
+          <Card />
+        </li>
+        <li class="list_item">
+          <Card />
+        </li>
+        <li class="list_item">
+          <Card />
+        </li>
 
-          <li>
-            <Card />
-          </li>
-          <li>
-            <Card />
-          </li>
-          <li>
-            <Card />
-          </li>
-        </ul>
-        <a class="posts_link" href="">Ver lista completa</a>
-      </section>
-    </main>
-  </div>
+        <li class="list_item">
+          <Card />
+        </li>
+        <li class="list_item">
+          <Card />
+        </li>
+        <li class="list_item">
+          <Card />
+        </li>
+      </ul>
+      <a class="posts_link" href="">Ver lista completa</a>
+    </section>
+  </main>
 </template>
 
 <style lang="css" scoped>
@@ -153,5 +151,117 @@ import Card from '@/components/card/Card.vue'
   font-weight: 700;
   font-size: 28px;
   line-height: 34px;
+}
+
+@media screen and (max-width: 1440px) {
+  .main {
+    padding: 32px 80px;
+    gap: 40px;
+  }
+
+  .presentation_content h1 {
+    font-size: 60px;
+  }
+
+  .presentation_content h3 {
+    font-size: 24px;
+  }
+
+  .list_item {
+    flex: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 32px 16px;
+    gap: 40px;
+  }
+
+  .presentation {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .presentation_content {
+    flex: 1;
+  }
+
+  .presentation_content h1 {
+    font-size: 60px;
+  }
+
+  .presentation_content h3 {
+    font-size: 24px;
+  }
+
+  .presentation_image {
+    width: 60%;
+    height: auto;
+  }
+
+  .list_item {
+    width: 45%;
+    flex: auto;
+  }
+
+  .posts_title {
+    font-size: 21px;
+  }
+
+  .posts_link {
+    font-size: 16px;
+  }
+
+  .community_button {
+    font-size: 18px;
+    align-self: center;
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .main {
+    padding: 32px 16px;
+    gap: 40px;
+  }
+
+  .presentation {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .presentation_content h1 {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .presentation_content h3 {
+    font-size: 21px;
+    text-align: center;
+  }
+
+  .presentation_image {
+    width: 100%;
+    height: auto;
+  }
+
+  .posts_title {
+    font-size: 21px;
+  }
+
+  .posts_link {
+    font-size: 16px;
+  }
+
+  .community_button {
+    font-size: 18px;
+    align-self: center;
+    width: 100%;
+
+    justify-content: center;
+  }
 }
 </style>

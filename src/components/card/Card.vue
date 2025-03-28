@@ -58,4 +58,37 @@
 
   color: #97989f;
 }
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .card_thumb {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .card_thumb {
+    width: 100%;
+    height: auto;
+  }
+
+  .card_title {
+    font-size: 18px;
+  }
+
+  .card_description,
+  .card_date {
+    font-size: 12px;
+  }
+}
 </style>

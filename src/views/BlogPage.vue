@@ -26,30 +26,28 @@ import Card from '@/components/card/Card.vue'
 
 <style lang="css" scoped>
 .container {
-  background: rgba(255, 255, 255, 1);
+  background: var(--bg-primary);
   min-height: 100vh;
-  padding: 32px 350px;
+  padding: var(--space-3xl) var(--container-desktop);
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--space-4xl);
 }
 
 .container h1 {
-  font-family: Work Sans;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: 0%;
-  color: #181a2a;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-relaxed);
+  color: var(--text-heading);
 }
 
 .container p {
-  font-family: 'Source Sans 3';
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 32px;
-  letter-spacing: 0%;
-  color: #3b3c4a;
+  font-family: var(--font-secondary);
+  font-weight: var(--font-regular);
+  font-size: var(--text-xl);
+  line-height: var(--leading-loose);
+  color: var(--text-secondary);
 }
 
 .posts_list {
@@ -57,16 +55,17 @@ import Card from '@/components/card/Card.vue'
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: var(--space-sm);
 }
 
 .list_item {
   list-style: none;
+  display: flex;
 }
 
 @media screen and (max-width: 1440px) {
   .container {
-    padding: 32px 80px;
+    padding: var(--space-3xl) var(--container-laptop);
   }
 
   .list_item {
@@ -76,7 +75,7 @@ import Card from '@/components/card/Card.vue'
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 32px 16px;
+    padding: var(--space-3xl) var(--container-mobile);
   }
 
   .list_item {
@@ -87,7 +86,7 @@ import Card from '@/components/card/Card.vue'
 
 @media screen and (max-width: 425px) {
   .container {
-    padding: 32px 16px;
+    padding: var(--space-3xl) var(--container-mobile);
   }
 
   .list_item {

@@ -1,0 +1,108 @@
+:root {
+  /* Font Families */
+  --font-primary: 'Work Sans', sans-serif;
+  --font-secondary: 'Source Sans 3', sans-serif;
+  --font-tertiary: 'Plus Jakarta Sans', sans-serif;
+
+  /* Font Weights */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Font Sizes */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 28px;
+  --text-4xl: 32px;
+  --text-5xl: 48px;
+  --text-6xl: 60px;
+  --text-7xl: 96px;
+
+  /* Line Heights */
+  --leading-none: 100%;
+  --leading-tight: 17.3px;
+  --leading-normal: 24px;
+  --leading-relaxed: 28px;
+  --leading-loose: 34px;
+
+  /* Colors */
+  --color-primary: #25be37;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Text Colors */
+  --text-primary: #1e1e1e;
+  --text-secondary: #3b3c4a;
+  --text-tertiary: #696a75;
+  --text-heading: #181a2a;
+  --text-copyright: #141624;
+  --text-muted: rgba(59, 60, 74, 0.24); /* #3b3c4a3d */
+
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f6f7;
+
+  /* Border Colors */
+  --border-primary: #e8e8ea;
+  --border-secondary: rgba(220, 221, 223, 1);
+
+  /* Shadow Colors */
+  --shadow-header: rgba(0, 0, 0, 0.25);
+  --shadow-footer: rgba(0, 0, 0, 0.25);
+  --shadow-image: rgba(0, 0, 0, 0.25);
+
+  /* Spacing */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 10px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 30px;
+  --space-3xl: 32px;
+  --space-4xl: 40px;
+  --space-5xl: 100px;
+
+  /* Container Padding */
+  --container-desktop: 350px;
+  --container-laptop: 80px;
+  --container-mobile: 16px;
+
+  /* Border Radius */
+  --radius-sm: 5px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* Sizes */
+  --logo-width: 190px;
+  --logo-height: 60px;
+  --logo-small-width: 43px;
+  --logo-small-height: 49px;
+  --card-width: 392px;
+  --card-thumb-width: 360px;
+  --card-thumb-height: 240px;
+
+  /* Form Colors */
+  --form-bg: rgba(217, 217, 217, 0.3);
+  --form-input-bg: rgba(217, 217, 217, 0.4);
+  --form-label: rgba(59, 60, 74, 0.65);
+  --form-placeholder: rgba(59, 60, 74, 0.4);
+
+  /* Additional Sizes */
+  --error-title-size: 120px;
+  --staff-image-size: 242px;
+  --blog-hero-width: 1200px;
+  --blog-hero-height: 550px;
+
+  /* Component Sizes */
+  --spinner-size: 50px;
+  --spinner-border: 5px;
+  --error-container-height: 400px;
+  --error-content-width: 500px;
+}

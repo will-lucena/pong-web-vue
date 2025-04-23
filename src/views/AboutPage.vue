@@ -60,72 +60,73 @@
 
 <style lang="css" scoped>
 .container {
-  background: rgba(255, 255, 255, 1);
+  background: var(--bg-primary);
   min-height: 100vh;
-  padding: 32px 350px;
+  padding: var(--space-3xl) var(--container-desktop);
   display: flex;
   flex-direction: column;
-  gap: 40px;
-}
-
-@media screen and (max-width: 1440px) {
-  .container {
-    padding: 32px 80px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 32px 16px;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .container {
-    padding: 32px 16px;
-  }
+  gap: var(--space-4xl);
 }
 
 .about {
   display: flex;
   flex-direction: column;
-
-  gap: 60px;
+  gap: var(--space-4xl);
 }
 
 section h1 {
-  font-family: Work Sans;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: 0%;
-  color: #181a2a;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-relaxed);
+  color: var(--text-heading);
 }
 
 section div {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-lg);
 }
 
 section p {
-  font-family: 'Source Sans 3';
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 32px;
-  letter-spacing: 0%;
-  color: #3b3c4a;
+  font-family: var(--font-secondary);
+  font-weight: var(--font-regular);
+  font-size: var(--text-xl);
+  line-height: var(--leading-loose);
+  color: var(--text-secondary);
 }
 
 .staff_container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-  gap: 75px;
+  gap: var(--space-4xl);
 }
 
 .staff_container p {
   text-align: center;
+}
+
+.staff_container img {
+  width: var(--staff-image-size);
+  height: var(--staff-image-size);
+}
+
+@media screen and (max-width: 1440px) {
+  .container {
+    padding: var(--space-3xl) var(--container-laptop);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: var(--space-3xl) var(--container-mobile);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    padding: var(--space-3xl) var(--container-mobile);
+  }
 }
 </style>

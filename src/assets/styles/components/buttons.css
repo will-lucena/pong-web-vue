@@ -1,0 +1,16 @@
+.btn {
+  padding: var(--space-4);
+  border-radius: 5px;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}

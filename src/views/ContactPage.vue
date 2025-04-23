@@ -28,82 +28,76 @@
 
 <style lang="css" scoped>
 .container {
-  background: rgba(255, 255, 255, 1);
+  background: var(--bg-primary);
   min-height: 100vh;
   width: 100%;
-  padding: 32px 350px;
+  padding: var(--space-3xl) var(--container-desktop);
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: var(--space-4xl);
 }
 
 .container h1 {
   flex: 1;
-
-  font-family: Work Sans;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 28px;
-  letter-spacing: 0%;
-
-  color: #181a2a;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-relaxed);
+  color: var(--text-heading);
 }
 
 .contact_form {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--space-xl);
   width: fit-content;
   height: fit-content;
-
-  background: #d9d9d94d;
-  border-radius: 12px;
-  padding: 24px 16px;
+  background: var(--form-bg);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-lg);
 }
 
 .form_group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-xs);
 }
 
 .form_group label {
-  font-family: 'Source Sans 3';
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 32px;
-  letter-spacing: 0%;
-  color: #3b3c4aa6;
+  font-family: var(--font-secondary);
+  font-weight: var(--font-bold);
+  font-size: var(--text-xl);
+  line-height: var(--leading-loose);
+  color: var(--form-label);
 }
 
 .form_group input,
 .form_group textarea {
-  padding: 12px;
-  border: 1px solid #e8e8ea;
-  border-radius: 5px;
-  font-family: 'Work Sans';
-  background: #d9d9d966;
+  padding: var(--space-md);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  background: var(--form-input-bg);
 }
 
 .form_group input::placeholder,
 .form_group textarea::placeholder {
-  font-family: 'Source Sans 3';
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 32px;
-  letter-spacing: 0%;
-  color: #3b3c4a66;
+  font-family: var(--font-secondary);
+  font-weight: var(--font-bold);
+  font-size: var(--text-xl);
+  line-height: var(--leading-loose);
+  color: var(--form-placeholder);
 }
 
 .submit_button {
-  padding: 16px;
-  background: #25be37;
-  color: white;
+  padding: var(--space-lg);
+  background: var(--color-primary);
+  color: var(--color-white);
   border: none;
-  border-radius: 5px;
-  font-family: 'Work Sans';
-  font-weight: 600;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -111,19 +105,19 @@
 
 @media screen and (max-width: 1440px) {
   .container {
-    padding: 32px 80px;
+    padding: var(--space-3xl) var(--container-laptop);
   }
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 32px 16px;
+    padding: var(--space-3xl) var(--container-mobile);
   }
 }
 
 @media screen and (max-width: 425px) {
   .container {
-    padding: 32px 16px;
+    padding: var(--space-3xl) var(--container-mobile);
   }
 }
 </style>

@@ -21,9 +21,9 @@ const goHome = () => {
 
 <style scoped>
 .main {
-  background: rgba(255, 255, 255, 1);
+  background: var(--bg-primary);
   min-height: 100vh;
-  padding: 32px 350px;
+  padding: var(--space-3xl) var(--container-desktop);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,41 +34,41 @@ const goHome = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-lg);
 }
 
 h1 {
-  font-family: 'Work Sans';
-  font-size: 120px;
-  font-weight: 700;
-  color: #25be37;
+  font-family: var(--font-primary);
+  font-size: var(--error-title-size);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
   margin: 0;
 }
 
 h2 {
-  font-family: 'Work Sans';
-  font-size: 32px;
-  font-weight: 600;
-  color: #181a2a;
+  font-family: var(--font-primary);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-semibold);
+  color: var(--text-heading);
   margin: 0;
 }
 
 p {
-  font-family: 'Work Sans';
-  font-size: 16px;
-  color: #3b3c4a;
-  margin: 0 0 16px 0;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-lg) 0;
 }
 
 .home-button {
-  padding: 12px 24px;
-  background: #25be37;
-  color: white;
+  padding: var(--space-md) var(--space-xl);
+  background: var(--color-primary);
+  color: var(--color-white);
   border: none;
-  border-radius: 5px;
-  font-family: 'Work Sans';
-  font-weight: 600;
-  font-size: 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
   cursor: pointer;
   transition: opacity 0.2s;
 }
@@ -79,21 +79,21 @@ p {
 
 @media screen and (max-width: 1200px) {
   .main {
-    padding: 32px 100px;
+    padding: var(--space-3xl) var(--container-laptop);
   }
 }
 
 @media screen and (max-width: 768px) {
   .main {
-    padding: 32px 20px;
+    padding: var(--space-3xl) var(--container-mobile);
   }
 
   h1 {
-    font-size: 80px;
+    font-size: var(--text-6xl);
   }
 
   h2 {
-    font-size: 24px;
+    font-size: var(--text-2xl);
   }
 }
 </style>

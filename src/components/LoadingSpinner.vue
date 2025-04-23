@@ -15,22 +15,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: var(--space-lg);
 }
 
 .spinner {
   width: 50px;
   height: 50px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #25be37;
+  border: 5px solid var(--bg-secondary);
+  border-top: 5px solid var(--color-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 .loading-text {
-  font-family: 'Work Sans';
-  font-size: 16px;
-  color: #3b3c4a;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
 }
 
 @keyframes spin {

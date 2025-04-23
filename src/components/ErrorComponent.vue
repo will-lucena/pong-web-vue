@@ -34,7 +34,7 @@ const handleGoHome = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: var(--space-xl);
 }
 
 .error-content {
@@ -42,50 +42,50 @@ const handleGoHome = () => {
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--space-xl);
 }
 
 .error-title {
-  font-family: 'Work Sans';
-  font-weight: 600;
-  font-size: 24px;
-  color: #181a2a;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-2xl);
+  color: var(--text-heading);
 }
 
 .error-message {
-  font-family: 'Work Sans';
-  font-size: 16px;
-  color: #3b3c4a;
-  margin-bottom: 20px;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
 }
 
 .button-group {
   display: flex;
-  gap: 16px;
+  gap: var(--space-lg);
   justify-content: center;
 }
 
 .retry-button,
 .home-button {
-  padding: 12px 24px;
-  border-radius: 5px;
-  font-family: 'Work Sans';
-  font-weight: 600;
-  font-size: 16px;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
   cursor: pointer;
   transition: opacity 0.2s;
 }
 
 .retry-button {
-  background: #25be37;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-white);
   border: none;
 }
 
 .home-button {
   background: transparent;
-  color: #3b3c4a;
-  border: 1px solid #e8e8ea;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
 }
 
 .retry-button:hover,

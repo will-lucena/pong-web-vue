@@ -1,130 +1,107 @@
 <script setup>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { quickLinks } from '@/config/navigation'
+import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
 </script>
 
 <template>
   <header class="header">
-    <img src="/src/assets/logomarca.png" alt="" width="190" height="60" />
+    <router-link to="/">
+      <img src="/src/assets/logomarca.png" alt="" width="190" height="60" />
+    </router-link>
     <nav>
       <ul class="nav_list">
-        <li class="nav_list__item">
-          <router-link to="/">Inicio</router-link>
-        </li>
-        <li class="nav_list__item">
-          <router-link to="/about">Sobre</router-link>
-        </li>
-        <li class="nav_list__item">
-          <router-link to="/blog">Blog</router-link>
-        </li>
-        <li class="nav_list__item">
-          <router-link to="/contact">Contato</router-link>
+        <li v-for="item in quickLinks" :key="item.link" class="nav_list__item">
+          <router-link :to="item.link">{{ item.label }}</router-link>
         </li>
       </ul>
     </nav>
-    <button class="community_button">
-      <font-awesome-icon :icon="faWhatsapp" />
-      Comunidade Whatsapp
-    </button>
+    <WhatsAppButton />
   </header>
 </template>
 
 <style scoped lang="css">
 .header {
-  box-shadow: 0 10px 48px 0 rgba(0, 0, 0, 0.25);
-  filter: drop-shadow(0 0 0 #000);
-  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 48px 0 var(--shadow-header);
+  filter: drop-shadow(0 0 0 var(--color-black));
+  background: var(--bg-primary);
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-sm);
 
-  padding: 32px 350px;
+  padding: var(--space-3xl) var(--container-desktop);
 }
 
 .nav_list {
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: var(--space-4xl);
   align-items: baseline;
   flex: 1;
   list-style: none;
 }
 
 .nav_list__item {
-  font-family: Work Sans;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-family: var(--font-primary);
+  font-weight: var(--font-medium);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
   letter-spacing: 0%;
-
-  color: #3b3c4a;
+  color: var(--text-secondary);
 }
 
-.community_button {
-  padding: 16px;
+.nav_list__item a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4px;
+.nav_list__item a:hover,
+.nav_list__item a.router-link-active {
+  color: var(--color-primary);
+}
 
-  border: none;
-  border-radius: 5px;
-
-  background: #25be37;
-  color: #fff;
-
-  font-family: Work Sans;
-  font-weight: 600;
-  font-size: 17.3px;
-  line-height: 17.3px;
+.header img {
+  width: var(--logo-width);
+  height: var(--logo-height);
 }
 
 @media screen and (max-width: 1440px) {
   .header {
-    padding: 32px 80px;
-    gap: 40px;
+    padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-4xl);
   }
 
   .nav_list__item {
-    font-size: 14px;
-  }
-
-  .community_button {
-    font-size: 16px;
+    font-size: var(--text-sm);
   }
 }
 
 @media screen and (max-width: 768px) {
   .header {
-    padding: 32px 16px;
+    padding: var(--space-3xl) var(--container-mobile);
   }
 
   .nav_list {
-    gap: 10px;
+    gap: var(--space-sm);
     display: none;
   }
 }
 
 @media screen and (max-width: 425px) {
   .header {
-    padding: 32px 16px;
+    padding: var(--space-3xl) var(--container-mobile);
   }
 
   .nav_list {
-    gap: 10px;
+    gap: var(--space-sm);
     display: none;
   }
 
   .nav_list__item {
-    font-size: 12px;
-  }
-
-  .community_button {
-    font-size: 14px;
+    font-size: var(--text-xs);
   }
 }
 </style>

@@ -15,48 +15,45 @@
 
 <style lang="css" scoped>
 .card {
-  width: 392px;
-  height: 416px;
-  padding: 16px;
-
-  border-radius: 12px;
-  border: 1px solid #e8e8ea;
+  width: var(--card-width);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
 
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-lg);
 }
 
 .card_thumb {
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
+  width: var(--card-thumb-width);
+  height: var(--card-thumb-height);
 }
 
 .card_title {
-  font-family: Work Sans;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-
-  color: #181a2a;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-relaxed);
+  color: var(--text-heading);
 }
 
 .card_description {
-  font-family: Work Sans;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 100%;
-
-  color: #181a2a8f;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
+  line-height: var(--leading-none);
+  color: var(--text-secondary);
 }
 
 .card_date {
-  font-family: Work Sans;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-
-  color: #97989f;
+  font-family: var(--font-primary);
+  font-weight: var(--font-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-tertiary);
 }
 
 @media screen and (max-width: 768px) {
@@ -83,12 +80,12 @@
   }
 
   .card_title {
-    font-size: 18px;
+    font-size: var(--text-lg);
   }
 
   .card_description,
   .card_date {
-    font-size: 12px;
+    font-size: var(--text-xs);
   }
 }
 </style>

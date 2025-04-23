@@ -1,5 +1,6 @@
 <script setup>
 import Card from '@/components/card/Card.vue'
+import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
 </script>
 
 <template>
@@ -13,7 +14,7 @@ import Card from '@/components/card/Card.vue'
             regional.
           </h3>
         </div>
-        <button class="community_button presentation_button">Juntar-se a Comunidade</button>
+        <WhatsAppButton :show-icon="false" full-width> Juntar-se a Comunidade </WhatsAppButton>
       </div>
       <img class="presentation_image" src="https://placehold.co/540x510" alt="" />
     </section>
@@ -30,7 +31,6 @@ import Card from '@/components/card/Card.vue'
         <li class="list_item">
           <Card />
         </li>
-
         <li class="list_item">
           <Card />
         </li>
@@ -41,73 +41,70 @@ import Card from '@/components/card/Card.vue'
           <Card />
         </li>
       </ul>
-      <a class="posts_link" href="">Ver lista completa</a>
+      <a class="posts_link" href="/blog">Ver lista completa</a>
     </section>
   </main>
 </template>
 
 <style lang="css" scoped>
 .main {
-  background: rgba(255, 255, 255, 1);
+  background: var(--bg-primary);
   min-height: 100vh;
 
-  padding: 32px 350px;
+  padding: var(--space-3xl) var(--container-desktop);
 
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: var(--space-5xl);
 }
 
 .presentation {
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: var(--space-4xl);
 }
 
 .presentation_content {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: var(--space-2xl);
 }
 
 .presentation_content h1 {
-  font-family: Work Sans;
-  font-weight: 700;
-  font-size: 96px;
-  line-height: 100%;
-
-  color: #1e1e1e;
+  font-family: var(--font-primary);
+  font-weight: var(--font-bold);
+  font-size: var(--text-7xl);
+  line-height: var(--leading-none);
+  color: var(--text-primary);
 }
 
 .presentation_content h3 {
-  font-family: 'Source Sans 3';
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 34px;
-
-  color: #3b3c4a;
+  font-family: var(--font-secondary);
+  font-weight: var(--font-regular);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-loose);
+  color: var(--text-secondary);
 }
 
 .presentation_image {
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
 
-  box-shadow: 0px 5px 30.2px 0px #00000040;
+  box-shadow: 0px 5px 30.2px 0px var(--shadow-image);
 }
 
 .posts {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-lg);
 }
 
 .posts_title {
-  font-family: Work Sans;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-
-  color: #181a2a;
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-relaxed);
+  color: var(--text-heading);
 }
 
 .posts_list {
@@ -116,71 +113,47 @@ import Card from '@/components/card/Card.vue'
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: var(--space-sm);
 }
 
 .posts_link {
-  font-family: 'Source Sans 3';
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 34px;
-
-  color: #3b3c4a3d;
-
+  font-family: var(--font-secondary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-loose);
+  color: var(--text-muted);
   text-align: right;
   text-decoration: none;
 }
 
-.community_button {
-  padding: 8px 16px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4px;
-
-  border: none;
-  border-radius: 5px;
-
-  background: #25be37;
-  color: #fff;
-
-  width: fit-content;
-
-  font-family: 'Source Sans 3';
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 34px;
-}
-
 @media screen and (max-width: 1440px) {
   .main {
-    padding: 32px 80px;
-    gap: 40px;
+    padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-4xl);
   }
 
   .presentation_content h1 {
-    font-size: 60px;
+    font-size: var(--text-6xl);
   }
 
   .presentation_content h3 {
-    font-size: 24px;
+    font-size: var(--text-2xl);
   }
 
   .list_item {
     flex: auto;
+    display: flex;
   }
 }
 
 @media screen and (max-width: 768px) {
   .main {
-    padding: 32px 16px;
-    gap: 40px;
+    padding: var(--space-3xl) var(--container-mobile);
+    gap: var(--space-4xl);
   }
 
   .presentation {
-    flex-direction: row;
-    gap: 24px;
+    gap: var(--space-xl);
   }
 
   .presentation_content {
@@ -188,11 +161,11 @@ import Card from '@/components/card/Card.vue'
   }
 
   .presentation_content h1 {
-    font-size: 60px;
+    font-size: var(--text-6xl);
   }
 
   .presentation_content h3 {
-    font-size: 24px;
+    font-size: var(--text-2xl);
   }
 
   .presentation_image {
@@ -206,40 +179,32 @@ import Card from '@/components/card/Card.vue'
   }
 
   .posts_title {
-    font-size: 21px;
+    font-size: var(--text-lg);
   }
 
   .posts_link {
-    font-size: 16px;
-  }
-
-  .community_button {
-    font-size: 18px;
-    align-self: center;
-    width: 100%;
-
-    justify-content: center;
+    font-size: var(--text-base);
   }
 }
 
 @media screen and (max-width: 425px) {
   .main {
-    padding: 32px 16px;
-    gap: 40px;
+    padding: var(--space-3xl) var(--container-mobile);
+    gap: var(--space-4xl);
   }
 
   .presentation {
     flex-direction: column;
-    gap: 24px;
+    gap: var(--space-xl);
   }
 
   .presentation_content h1 {
-    font-size: 48px;
+    font-size: var(--text-5xl);
     text-align: center;
   }
 
   .presentation_content h3 {
-    font-size: 21px;
+    font-size: var(--text-xl);
     text-align: center;
   }
 
@@ -249,19 +214,11 @@ import Card from '@/components/card/Card.vue'
   }
 
   .posts_title {
-    font-size: 21px;
+    font-size: var(--text-lg);
   }
 
   .posts_link {
-    font-size: 16px;
-  }
-
-  .community_button {
-    font-size: 18px;
-    align-self: center;
-    width: 100%;
-
-    justify-content: center;
+    font-size: var(--text-base);
   }
 }
 </style>

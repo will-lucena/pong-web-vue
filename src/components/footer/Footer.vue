@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+import { quickLinks, socialMediaLinks } from '@/config/navigation'
+
+const firstColumnSocial = socialMediaLinks.slice(0, 4)
+const secondColumnSocial = socialMediaLinks.slice(4)
+</script>
 
 <template>
   <footer class="footer">
@@ -16,10 +21,9 @@
           <h3>Links Rápidos</h3>
           <nav>
             <ul class="nav_list">
-              <li class="nav_list__item">Inicio</li>
-              <li class="nav_list__item">Sobre</li>
-              <li class="nav_list__item">Blog</li>
-              <li class="nav_list__item">Organizadores</li>
+              <li v-for="item in quickLinks" :key="item.link" class="nav_list__item">
+                <router-link :to="item.link">{{ item.label }}</router-link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -28,16 +32,14 @@
           <h3>Todas as Redes Sociais</h3>
           <nav class="nav_links">
             <ul class="nav_list">
-              <li class="nav_list__item">Discord</li>
-              <li class="nav_list__item">Twitter</li>
-              <li class="nav_list__item">Facebook</li>
-              <li class="nav_list__item">Whatsapp</li>
+              <li v-for="item in firstColumnSocial" :key="item.link" class="nav_list__item">
+                <a :href="item.link" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
+              </li>
             </ul>
             <ul class="nav_list">
-              <li class="nav_list__item">Bluesky</li>
-              <li class="nav_list__item">Youtube</li>
-              <li class="nav_list__item">Instagram</li>
-              <li class="nav_list__item">Mastodon</li>
+              <li v-for="item in secondColumnSocial" :key="item.link" class="nav_list__item">
+                <a :href="item.link" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -55,14 +57,14 @@
 
 <style scoped lang="css">
 .footer {
-  box-shadow: 0px -1px 42.3px 0px rgba(0, 0, 0, 0.25);
-  background: #f6f6f7;
+  box-shadow: 0px -1px 42.3px 0px var(--shadow-footer);
+  background: var(--bg-secondary);
 
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--space-4xl);
 
-  padding: 32px 350px;
+  padding: var(--space-3xl) var(--container-desktop);
 }
 
 .about,
@@ -79,7 +81,7 @@
 .nav_links {
   flex-direction: row;
   justify-content: space-between;
-  gap: 40px;
+  gap: var(--space-4xl);
 }
 
 .info,
@@ -87,7 +89,7 @@
 .quick_links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-md);
 }
 
 .nav_list {
@@ -97,24 +99,24 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: baseline;
-  gap: 8px;
+  gap: var(--space-xs);
   flex: 1;
 
   list-style: none;
 }
 
 .nav_list__item {
-  color: black;
+  color: var(--text-secondary);
 }
 
 .copyright {
-  border-top: 1px solid rgba(220, 221, 223, 1);
-  padding: 32px 0;
+  border-top: 1px solid var(--border-secondary);
+  padding: var(--space-3xl) 0;
 
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 10px;
+  gap: var(--space-sm);
 }
 
 .copyright__content {
@@ -125,66 +127,71 @@
 .info > h3,
 .quick_links > h3,
 .social_media_links > h3 {
-  font-family: Plus Jakarta Sans;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 28px;
-
-  color: #181a2a;
+  font-family: var(--font-tertiary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-heading);
 }
 
 .info > p {
   width: 30ch;
-
-  font-family: Plus Jakarta Sans;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-
-  color: #696a75;
+  font-family: var(--font-tertiary);
+  font-weight: var(--font-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-tertiary);
 }
 
 .copyright__content > h3 {
-  font-family: Plus Jakarta Sans;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 28px;
-
-  color: #141624;
+  font-family: var(--font-tertiary);
+  font-weight: var(--font-bold);
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
+  color: var(--text-copyright);
 }
 
 .copyright__content > p,
 .nav_list__item {
-  font-family: Plus Jakarta Sans;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-family: var(--font-tertiary);
+  font-weight: var(--font-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
 
-  color: #3b3c4a;
+.nav_list__item a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav_list__item a:hover {
+  color: var(--color-primary);
 }
 
 @media screen and (max-width: 1440px) {
   .footer {
-    padding: 32px 80px;
-    gap: 40px;
+    padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-4xl);
   }
 }
 
 @media screen and (max-width: 768px) {
   .footer {
-    padding: 32px 16px;
+    padding: var(--space-3xl) var(--container-mobile);
   }
 }
 
 @media screen and (max-width: 425px) {
   .footer {
-    padding: 32px 16px;
-    gap: 20px;
+    padding: var(--space-3xl) var(--container-mobile);
+    gap: var(--space-xl);
   }
 
   .about {
     flex-direction: column;
-    gap: 20px;
+    gap: var(--space-xl);
   }
 
   .info {
@@ -194,7 +201,7 @@
   .info > h3,
   .quick_links > h3,
   .social_media_links > h3 {
-    font-size: 12px;
+    font-size: var(--text-xs);
   }
 
   .info > p {
@@ -202,21 +209,21 @@
   }
 
   .nav_list {
-    gap: 2px;
+    gap: var(--space-2xs);
   }
 
   .info > p,
   .nav_list__item {
-    font-size: 12px;
+    font-size: var(--text-xs);
   }
 
   .copyright {
-    gap: 4px;
-    padding: 32px 0 0 0;
+    gap: var(--space-2xs);
+    padding: var(--space-3xl) 0 0 0;
   }
 
   .copyright__content > p {
-    font-size: 10px;
+    font-size: var(--text-xs);
   }
 }
 </style>

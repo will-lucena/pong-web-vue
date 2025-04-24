@@ -1,5 +1,31 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 import Card from '@/components/card/Card.vue'
+
+const isLoading = ref(true)
+const posts = ref([])
+
+onMounted(async () => {
+  // Simulate API call
+  await new Promise((resolve) => setTimeout(resolve, 2000))
+  posts.value = [
+    {
+      id: 1,
+      title: 'Como começar no desenvolvimento de jogos',
+      description: 'Lorem ipsum dolor sit amet...',
+      date: '03/01/2025',
+      imageUrl: 'https://placehold.co/360x240',
+      imageAlt: 'Game Development Introduction',
+    },
+    // ... more posts
+  ]
+  isLoading.value = false
+})
+
+function handlePostClick(post) {
+  console.log('Post clicked:', post.title)
+  // Add any additional click handling logic here
+}
 </script>
 
 <template>
@@ -17,9 +43,24 @@ import Card from '@/components/card/Card.vue'
       lorem iaculis non.
     </p>
     <ul class="posts_list">
-      <li v-for="n in 10" :key="n" class="list_item">
-        <Card />
-      </li>
+      <template v-if="isLoading">
+        <li v-for="n in 6" :key="n" class="list_item">
+          <Card loading title="Loading..." description="Loading..." date="Loading..." :to="'/'" />
+        </li>
+      </template>
+      <template v-else>
+        <li v-for="post in posts" :key="post.id" class="list_item">
+          <Card
+            :title="post.title"
+            :description="post.description"
+            :date="post.date"
+            :image-url="post.imageUrl"
+            :image-alt="post.imageAlt"
+            :to="`/blog/${post.id}`"
+            @click="() => handlePostClick(post)"
+          />
+        </li>
+      </template>
     </ul>
   </section>
 </template>

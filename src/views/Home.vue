@@ -1,6 +1,33 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 import Card from '@/components/card/Card.vue'
 import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
+
+const isLoading = ref(true)
+const recentPosts = ref([])
+
+onMounted(async () => {
+  // Simulate API call
+  await new Promise((resolve) => setTimeout(resolve, 2000))
+  recentPosts.value = [
+    {
+      id: 1,
+      title: 'Últimas novidades da comunidade',
+      description:
+        'Confira as últimas atualizações e eventos da comunidade de desenvolvedores de jogos do RN.',
+      date: '03/01/2025',
+      imageUrl: 'https://placehold.co/360x240',
+      imageAlt: 'Community Updates',
+    },
+    // ... more posts
+  ]
+  isLoading.value = false
+})
+
+function handlePostClick(post) {
+  console.log('Recent post clicked:', post.title)
+  // Add any additional click handling logic here
+}
 </script>
 
 <template>
@@ -22,24 +49,24 @@ import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
     <section class="posts">
       <h2 class="posts_title">Publicações Recentes</h2>
       <ul class="posts_list">
-        <li class="list_item">
-          <Card />
-        </li>
-        <li class="list_item">
-          <Card />
-        </li>
-        <li class="list_item">
-          <Card />
-        </li>
-        <li class="list_item">
-          <Card />
-        </li>
-        <li class="list_item">
-          <Card />
-        </li>
-        <li class="list_item">
-          <Card />
-        </li>
+        <template v-if="isLoading">
+          <li v-for="n in 3" :key="n" class="list_item">
+            <Card loading title="Loading..." description="Loading..." date="Loading..." :to="'/'" />
+          </li>
+        </template>
+        <template v-else>
+          <li v-for="post in recentPosts" :key="post.id" class="list_item">
+            <Card
+              :title="post.title"
+              :description="post.description"
+              :date="post.date"
+              :image-url="post.imageUrl"
+              :image-alt="post.imageAlt"
+              :to="`/blog/${post.id}`"
+              @click="() => handlePostClick(post)"
+            />
+          </li>
+        </template>
       </ul>
       <a class="posts_link" href="/blog">Ver lista completa</a>
     </section>

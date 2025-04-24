@@ -7,6 +7,10 @@ defineProps({
     type: Boolean,
     default: true,
   },
+  iconOnly: {
+    type: Boolean,
+    default: false,
+  },
   fullWidth: {
     type: Boolean,
     default: false,
@@ -19,9 +23,16 @@ function openCommunityWhatsapp() {
 </script>
 
 <template>
-  <button class="whatsapp_button" :class="{ full_width: fullWidth }" @click="openCommunityWhatsapp">
-    <font-awesome-icon v-if="showIcon" :icon="faWhatsapp" />
-    <slot>Comunidade Whatsapp</slot>
+  <button
+    class="whatsapp_button"
+    :class="{
+      full_width: fullWidth,
+      icon_only: iconOnly,
+    }"
+    @click="openCommunityWhatsapp"
+  >
+    <font-awesome-icon v-if="showIcon || iconOnly" :icon="faWhatsapp" />
+    <slot v-if="!iconOnly">Comunidade Whatsapp</slot>
   </button>
 </template>
 
@@ -41,7 +52,7 @@ function openCommunityWhatsapp() {
   font-size: var(--text-base);
   line-height: var(--leading-tight);
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .whatsapp_button.full_width {
@@ -49,8 +60,15 @@ function openCommunityWhatsapp() {
   justify-content: center;
 }
 
+.whatsapp_button.icon_only {
+  padding: var(--space-md);
+  aspect-ratio: 1;
+  justify-content: center;
+}
+
 .whatsapp_button:hover {
   opacity: 0.9;
+  transform: scale(1.05);
 }
 
 @media screen and (max-width: 768px) {

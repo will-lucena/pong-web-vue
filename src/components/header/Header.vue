@@ -1,6 +1,7 @@
 <script setup>
 import { quickLinks } from '@/config/navigation'
 import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
+import HamburgerMenu from '@/components/navigation/HamburgerMenu.vue'
 </script>
 
 <template>
@@ -8,14 +9,18 @@ import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
     <router-link to="/">
       <img src="/src/assets/logomarca.png" alt="" width="190" height="60" />
     </router-link>
-    <nav>
+    <nav class="desktop_nav">
       <ul class="nav_list">
         <li v-for="item in quickLinks" :key="item.link" class="nav_list__item">
           <router-link :to="item.link">{{ item.label }}</router-link>
         </li>
       </ul>
     </nav>
-    <WhatsAppButton />
+    <div class="actions">
+      <WhatsAppButton :icon-only="true" class="mobile_whatsapp" />
+      <WhatsAppButton class="desktop_whatsapp" />
+      <HamburgerMenu />
+    </div>
   </header>
 </template>
 
@@ -68,6 +73,16 @@ import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
   height: var(--logo-height);
 }
 
+.actions {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.mobile_whatsapp {
+  display: none;
+}
+
 @media screen and (max-width: 1440px) {
   .header {
     padding: var(--space-3xl) var(--container-laptop);
@@ -84,9 +99,16 @@ import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
     padding: var(--space-3xl) var(--container-mobile);
   }
 
-  .nav_list {
-    gap: var(--space-sm);
+  .desktop_nav {
     display: none;
+  }
+
+  .desktop_whatsapp {
+    display: none;
+  }
+
+  .mobile_whatsapp {
+    display: block;
   }
 }
 

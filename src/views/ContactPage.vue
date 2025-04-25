@@ -112,6 +112,16 @@
 @media screen and (max-width: 768px) {
   .container {
     padding: var(--space-3xl) var(--container-mobile);
+    flex-direction: column;
+  }
+
+  .contact_form {
+    width: 100%;
+    height: auto;
+  }
+
+  .container h1 {
+    flex: none;
   }
 }
 

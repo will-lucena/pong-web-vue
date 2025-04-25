@@ -181,13 +181,6 @@ const secondColumnSocial = socialMediaLinks.slice(4)
   .footer {
     padding: var(--space-3xl) var(--container-mobile);
   }
-}
-
-@media screen and (max-width: 425px) {
-  .footer {
-    padding: var(--space-3xl) var(--container-mobile);
-    gap: var(--space-xl);
-  }
 
   .about {
     flex-direction: column;
@@ -224,6 +217,13 @@ const secondColumnSocial = socialMediaLinks.slice(4)
 
   .copyright__content > p {
     font-size: var(--text-xs);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer {
+    padding: var(--space-3xl) var(--container-mobile);
+    gap: var(--space-xl);
   }
 }
 </style>

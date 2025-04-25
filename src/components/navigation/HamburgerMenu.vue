@@ -97,27 +97,32 @@ function closeMenu() {
 }
 
 .menu_overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
 }
 
 .menu_content {
   position: fixed;
-  top: calc(var(--space-3xl) * 2 + var(--logo-height));
+  top: calc(var(--space-4xl) + var(--logo-height));
+
   right: 0;
-  width: 250px;
-  height: calc(100vh - (var(--space-3xl) * 2 + var(--logo-height)));
+  width: 100%;
+  max-width: 300px;
+  height: 100vh;
   background: var(--bg-primary);
   padding: var(--space-xl);
   box-shadow: -2px 0 10px var(--shadow-header);
   display: flex;
   flex-direction: column;
   gap: var(--space-2xl);
+  z-index: 1001;
+  overflow-y: auto;
 }
 
 .menu_list {

@@ -1,8 +1,14 @@
 <script setup>
 import { ref } from 'vue'
-import { quickLinks } from '@/config/navigation'
+import { quickLinks, socialMediaLinks } from '@/config/navigation'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const isOpen = ref(false)
+
+// Filter social media links to only show Discord, Instagram, and Twitter
+const filteredSocialLinks = socialMediaLinks.filter((link) =>
+  ['Discord', 'Instagram', 'Twitter'].includes(link.label),
+)
 
 function toggleMenu() {
   isOpen.value = !isOpen.value
@@ -36,6 +42,17 @@ function closeMenu() {
             </li>
           </ul>
         </nav>
+        <div class="social_links">
+          <h3>Redes Sociais</h3>
+          <ul class="social_list">
+            <li v-for="item in filteredSocialLinks" :key="item.link" class="social_item">
+              <a :href="item.link" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon :icon="['fab', item.label.toLowerCase()]" class="social_icon" />
+                <span>{{ item.label }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -98,6 +115,9 @@ function closeMenu() {
   background: var(--bg-primary);
   padding: var(--space-xl);
   box-shadow: -2px 0 10px var(--shadow-header);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
 }
 
 .menu_list {
@@ -121,6 +141,51 @@ function closeMenu() {
 .menu_item a:hover,
 .menu_item a.router-link-active {
   color: var(--color-primary);
+}
+
+.social_links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.social_links h3 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-lg);
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.social_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.social_item a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-family: var(--font-primary);
+  font-weight: var(--font-medium);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social_item a:hover {
+  color: var(--color-primary);
+}
+
+.social_icon {
+  font-size: var(--text-xl);
+  width: 24px;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {

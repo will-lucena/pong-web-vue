@@ -15,7 +15,7 @@ const props = defineProps({
     default: false,
   },
   aspectRatio: {
-    type: String,
+    type: [String, Number],
     default: '1.5',
   },
 })

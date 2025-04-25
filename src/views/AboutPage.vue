@@ -122,6 +122,15 @@ section p {
   .container {
     padding: var(--space-3xl) var(--container-mobile);
   }
+
+  .staff_container {
+    gap: var(--space-3xl);
+  }
+
+  section div {
+    align-items: center;
+    flex: 1;
+  }
 }
 
 @media screen and (max-width: 425px) {

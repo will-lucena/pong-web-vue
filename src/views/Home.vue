@@ -35,7 +35,7 @@ function handlePostClick(post) {
     <section class="presentation">
       <div class="presentation_content">
         <div>
-          <h1>Potiguar Indie Games</h1>
+          <h1 class="hero">Potiguar Indie Games</h1>
           <h3>
             Grupo de desenvolvedores de jogos do Rio Grande do Norte, ajude a consolidar o cenário
             regional.
@@ -77,9 +77,7 @@ function handlePostClick(post) {
 .main {
   background: var(--bg-primary);
   min-height: 100vh;
-
   padding: var(--space-3xl) var(--container-desktop);
-
   display: flex;
   flex-direction: column;
   gap: var(--space-5xl);
@@ -97,26 +95,9 @@ function handlePostClick(post) {
   gap: var(--space-2xl);
 }
 
-.presentation_content h1 {
-  font-family: var(--font-primary);
-  font-weight: var(--font-bold);
-  font-size: var(--text-7xl);
-  line-height: var(--leading-none);
-  color: var(--text-primary);
-}
-
-.presentation_content h3 {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-regular);
-  font-size: var(--text-4xl);
-  line-height: var(--leading-loose);
-  color: var(--text-secondary);
-}
-
 .presentation_image {
   border: none;
   border-radius: var(--radius-lg);
-
   box-shadow: 0px 5px 30.2px 0px var(--shadow-image);
 }
 
@@ -136,7 +117,6 @@ function handlePostClick(post) {
 
 .posts_list {
   padding: 0;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -144,27 +124,15 @@ function handlePostClick(post) {
 }
 
 .posts_link {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-semibold);
-  font-size: var(--text-3xl);
-  line-height: var(--leading-loose);
-  color: var(--text-muted);
   text-align: right;
   text-decoration: none;
+  color: var(--text-muted);
 }
 
 @media screen and (max-width: 1440px) {
   .main {
     padding: var(--space-3xl) var(--container-laptop);
     gap: var(--space-4xl);
-  }
-
-  .presentation_content h1 {
-    font-size: var(--text-6xl);
-  }
-
-  .presentation_content h3 {
-    font-size: var(--text-2xl);
   }
 
   .list_item {
@@ -187,14 +155,6 @@ function handlePostClick(post) {
     flex: 1;
   }
 
-  .presentation_content h1 {
-    font-size: var(--text-6xl);
-  }
-
-  .presentation_content h3 {
-    font-size: var(--text-2xl);
-  }
-
   .presentation_image {
     width: 60%;
     height: auto;
@@ -203,14 +163,6 @@ function handlePostClick(post) {
   .list_item {
     width: 45%;
     flex: auto;
-  }
-
-  .posts_title {
-    font-size: var(--text-lg);
-  }
-
-  .posts_link {
-    font-size: var(--text-base);
   }
 }
 
@@ -225,27 +177,9 @@ function handlePostClick(post) {
     gap: var(--space-xl);
   }
 
-  .presentation_content h1 {
-    font-size: var(--text-5xl);
-    text-align: center;
-  }
-
-  .presentation_content h3 {
-    font-size: var(--text-xl);
-    text-align: center;
-  }
-
   .presentation_image {
     width: 100%;
     height: auto;
-  }
-
-  .posts_title {
-    font-size: var(--text-lg);
-  }
-
-  .posts_link {
-    font-size: var(--text-base);
   }
 }
 </style>

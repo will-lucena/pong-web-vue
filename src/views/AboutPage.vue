@@ -74,26 +74,10 @@
   gap: var(--space-4xl);
 }
 
-section h1 {
-  font-family: var(--font-primary);
-  font-weight: var(--font-semibold);
-  font-size: var(--text-2xl);
-  line-height: var(--leading-relaxed);
-  color: var(--text-heading);
-}
-
 section div {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
-}
-
-section p {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-regular);
-  font-size: var(--text-xl);
-  line-height: var(--leading-loose);
-  color: var(--text-secondary);
 }
 
 .staff_container {

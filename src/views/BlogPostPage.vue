@@ -2,7 +2,7 @@
 
 <template>
   <article class="container">
-    <h1>
+    <h1 class="hero">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam posuere accumsan dignissim.
       Nulla risus magna.
     </h1>
@@ -46,34 +46,19 @@
   gap: var(--space-4xl);
 }
 
-.container h1 {
-  font-family: var(--font-primary);
-  font-weight: var(--font-semibold);
-  font-size: var(--text-5xl);
-  line-height: var(--leading-tight);
-  color: var(--text-heading);
-}
-
 .container img {
   border-radius: var(--radius-xl);
-  width: var(--blog-hero-width);
   height: var(--blog-hero-height);
 }
 
-.container p {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-regular);
-  font-size: var(--text-xl);
-  line-height: var(--leading-loose);
-  color: var(--text-secondary);
+.container a {
+  color: var(--text-heading);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
-.container a {
-  font-family: var(--font-primary);
-  font-weight: var(--font-semibold);
-  font-size: var(--text-2xl);
-  line-height: var(--leading-relaxed);
-  color: var(--text-heading);
+.container a:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 1440px) {

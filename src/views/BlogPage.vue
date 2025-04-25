@@ -75,22 +75,6 @@ function handlePostClick(post) {
   gap: var(--space-4xl);
 }
 
-.container h1 {
-  font-family: var(--font-primary);
-  font-weight: var(--font-semibold);
-  font-size: var(--text-2xl);
-  line-height: var(--leading-relaxed);
-  color: var(--text-heading);
-}
-
-.container p {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-regular);
-  font-size: var(--text-xl);
-  line-height: var(--leading-loose);
-  color: var(--text-secondary);
-}
-
 .posts_list {
   padding: 0;
   display: flex;

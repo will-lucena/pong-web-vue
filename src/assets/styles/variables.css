@@ -68,8 +68,28 @@
   --space-4xl: 40px;
   --space-5xl: 100px;
 
+  /* Mobile Spacing */
+  --space-mobile-2xs: 2px;
+  --space-mobile-xs: 4px;
+  --space-mobile-sm: 6px;
+  --space-mobile-md: 8px;
+  --space-mobile-lg: 12px;
+  --space-mobile-xl: 16px;
+  --space-mobile-2xl: 20px;
+  --space-mobile-3xl: 24px;
+  --space-mobile-4xl: 32px;
+  --space-mobile-5xl: 48px;
+
+  /* Breakpoints */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+
   /* Container Padding */
-  --container-desktop: 350px;
+  --container-desktop: 240px;
   --container-laptop: 80px;
   --container-mobile: 16px;
 

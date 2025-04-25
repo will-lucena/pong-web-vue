@@ -96,7 +96,19 @@ section div {
   height: var(--staff-image-size);
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1400px) {
+  .container {
+    padding: var(--space-3xl) var(--container-laptop);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: var(--space-3xl) var(--container-laptop);
+  }
+}
+
+@media screen and (max-width: 992px) {
   .container {
     padding: var(--space-3xl) var(--container-laptop);
   }
@@ -104,11 +116,20 @@ section div {
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: var(--space-3xl) var(--container-mobile);
+    padding: var(--space-mobile-3xl) var(--container-mobile);
+    gap: var(--space-mobile-4xl);
+  }
+
+  .about {
+    gap: var(--space-mobile-4xl);
+  }
+
+  section div {
+    gap: var(--space-mobile-lg);
   }
 
   .staff_container {
-    gap: var(--space-3xl);
+    gap: var(--space-mobile-3xl);
   }
 
   section div {
@@ -117,9 +138,22 @@ section div {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 576px) {
   .container {
-    padding: var(--space-3xl) var(--container-mobile);
+    padding: var(--space-mobile-2xl) var(--container-mobile);
+    gap: var(--space-mobile-3xl);
+  }
+
+  .about {
+    gap: var(--space-mobile-3xl);
+  }
+
+  section div {
+    gap: var(--space-mobile-md);
+  }
+
+  .staff_container {
+    gap: var(--space-mobile-2xl);
   }
 }
 </style>

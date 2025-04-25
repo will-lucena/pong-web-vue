@@ -103,31 +103,95 @@
   letter-spacing: 1.5px;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1400px) {
   .container {
     padding: var(--space-3xl) var(--container-laptop);
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-3xl);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-2xl);
+  }
+}
+
 @media screen and (max-width: 768px) {
   .container {
-    padding: var(--space-3xl) var(--container-mobile);
+    padding: var(--space-mobile-3xl) var(--container-mobile);
     flex-direction: column;
-  }
-
-  .contact_form {
-    width: 100%;
-    height: auto;
+    gap: var(--space-mobile-2xl);
+    min-height: auto;
   }
 
   .container h1 {
     flex: none;
   }
+
+  .contact_form {
+    width: 100%;
+    height: auto;
+    padding: var(--space-mobile-xl) var(--space-mobile-lg);
+    gap: var(--space-mobile-xl);
+  }
+
+  .form_group {
+    gap: var(--space-mobile-xs);
+  }
+
+  .form_group label {
+    font-size: var(--text-lg);
+  }
+
+  .form_group input::placeholder,
+  .form_group textarea::placeholder {
+    font-size: var(--text-lg);
+  }
+
+  .submit_button {
+    padding: var(--space-mobile-lg);
+  }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 576px) {
   .container {
-    padding: var(--space-3xl) var(--container-mobile);
+    padding: var(--space-mobile-2xl) var(--container-mobile);
+    gap: var(--space-mobile-xl);
+  }
+
+  .contact_form {
+    padding: var(--space-mobile-lg) var(--space-mobile-md);
+    gap: var(--space-mobile-lg);
+  }
+
+  .form_group {
+    gap: var(--space-mobile-2xs);
+  }
+
+  .form_group label {
+    font-size: var(--text-base);
+  }
+
+  .form_group input,
+  .form_group textarea {
+    padding: var(--space-mobile-md);
+  }
+
+  .form_group input::placeholder,
+  .form_group textarea::placeholder {
+    font-size: var(--text-base);
+  }
+
+  .submit_button {
+    padding: var(--space-mobile-md);
+    font-size: var(--text-sm);
   }
 }
 </style>

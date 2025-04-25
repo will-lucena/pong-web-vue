@@ -83,7 +83,7 @@ import HamburgerMenu from '@/components/navigation/HamburgerMenu.vue'
   display: none;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1400px) {
   .header {
     padding: var(--space-3xl) var(--container-laptop);
     gap: var(--space-4xl);
@@ -94,9 +94,23 @@ import HamburgerMenu from '@/components/navigation/HamburgerMenu.vue'
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .header {
+    padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-3xl);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .header {
+    padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-2xl);
+  }
+}
+
 @media screen and (max-width: 768px) {
   .header {
-    padding: var(--space-3xl) var(--container-mobile);
+    padding: var(--space-mobile-3xl) var(--container-mobile);
   }
 
   .desktop_nav {
@@ -112,13 +126,13 @@ import HamburgerMenu from '@/components/navigation/HamburgerMenu.vue'
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 576px) {
   .header {
-    padding: var(--space-3xl) var(--container-mobile);
+    padding: var(--space-mobile-2xl) var(--container-mobile);
   }
 
   .nav_list {
-    gap: var(--space-sm);
+    gap: var(--space-mobile-sm);
     display: none;
   }
 

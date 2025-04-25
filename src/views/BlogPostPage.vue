@@ -48,7 +48,6 @@
 
 .container img {
   border-radius: var(--radius-xl);
-  height: var(--blog-hero-height);
 }
 
 .container a {
@@ -61,7 +60,19 @@
   opacity: 0.8;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1400px) {
+  .container {
+    padding: var(--space-3xl) var(--container-laptop);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: var(--space-3xl) var(--container-laptop);
+  }
+}
+
+@media screen and (max-width: 992px) {
   .container {
     padding: var(--space-3xl) var(--container-laptop);
   }
@@ -69,13 +80,15 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: var(--space-3xl) var(--container-mobile);
+    padding: var(--space-mobile-3xl) var(--container-mobile);
+    gap: var(--space-mobile-4xl);
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 576px) {
   .container {
-    padding: var(--space-3xl) var(--container-mobile);
+    padding: var(--space-mobile-2xl) var(--container-mobile);
+    gap: var(--space-mobile-3xl);
   }
 }
 </style>

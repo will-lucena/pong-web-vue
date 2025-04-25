@@ -170,60 +170,118 @@ const secondColumnSocial = socialMediaLinks.slice(4)
   color: var(--color-primary);
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1400px) {
   .footer {
     padding: var(--space-3xl) var(--container-laptop);
     gap: var(--space-4xl);
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .footer {
+    padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-3xl);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .footer {
+    padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-2xl);
+  }
+}
+
 @media screen and (max-width: 768px) {
   .footer {
-    padding: var(--space-3xl) var(--container-mobile);
+    padding: var(--space-mobile-3xl) var(--container-mobile);
   }
 
   .about {
     flex-direction: column;
-    gap: var(--space-xl);
+    gap: var(--space-mobile-xl);
   }
 
   .info {
-    gap: 0;
+    gap: var(--space-mobile-md);
   }
 
   .info > h3,
   .quick_links > h3,
   .social_media_links > h3 {
-    font-size: var(--text-xs);
+    font-size: var(--text-base);
   }
 
   .info > p {
     width: 100%;
+    font-size: var(--text-sm);
   }
 
-  .nav_list {
-    gap: var(--space-2xs);
+  .links {
+    flex-direction: column;
+    gap: var(--space-mobile-xl);
   }
 
-  .info > p,
-  .nav_list__item {
-    font-size: var(--text-xs);
+  .nav_links {
+    gap: var(--space-mobile-lg);
   }
 
   .copyright {
-    gap: var(--space-2xs);
-    padding: var(--space-3xl) 0 0 0;
+    padding: var(--space-mobile-2xl) 0;
+    gap: var(--space-mobile-sm);
+  }
+
+  .copyright__content > h3 {
+    font-size: var(--text-lg);
+  }
+
+  .copyright__content > p {
+    font-size: var(--text-sm);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .footer {
+    padding: var(--space-mobile-2xl) var(--container-mobile);
+    gap: var(--space-mobile-3xl);
+  }
+
+  .about {
+    gap: var(--space-mobile-lg);
+  }
+
+  .info {
+    gap: var(--space-mobile-sm);
+  }
+
+  .info > h3,
+  .quick_links > h3,
+  .social_media_links > h3 {
+    font-size: var(--text-sm);
+  }
+
+  .info > p {
+    font-size: var(--text-xs);
+  }
+
+  .links {
+    gap: var(--space-mobile-lg);
+  }
+
+  .nav_links {
+    gap: var(--space-mobile-md);
+  }
+
+  .copyright {
+    padding: var(--space-mobile-xl) 0;
+    gap: var(--space-mobile-xs);
+  }
+
+  .copyright__content > h3 {
+    font-size: var(--text-base);
   }
 
   .copyright__content > p {
     font-size: var(--text-xs);
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .footer {
-    padding: var(--space-3xl) var(--container-mobile);
-    gap: var(--space-xl);
   }
 }
 </style>

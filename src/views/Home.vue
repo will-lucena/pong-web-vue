@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import Card from '@/components/card/Card.vue'
 import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const isLoading = ref(true)
 const recentPosts = ref([])
@@ -68,7 +69,10 @@ function handlePostClick(post) {
           </li>
         </template>
       </ul>
-      <a class="posts_link" href="/blog">Ver lista completa</a>
+      <a class="posts_link" href="/blog">
+        Ver lista completa
+        <FontAwesomeIcon icon="arrow-right" class="arrow-icon" />
+      </a>
     </section>
   </main>
 </template>
@@ -127,6 +131,19 @@ function handlePostClick(post) {
   text-align: right;
   text-decoration: none;
   color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+}
+
+.arrow-icon {
+  font-size: var(--text-sm);
+  transition: transform 0.2s ease;
+}
+
+.posts_link:hover .arrow-icon {
+  transform: translateX(4px);
 }
 
 @media screen and (max-width: 1400px) {

@@ -1,6 +1,5 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 defineProps({
   showIcon: {
@@ -31,7 +30,7 @@ function openCommunityWhatsapp() {
     }"
     @click="openCommunityWhatsapp"
   >
-    <font-awesome-icon v-if="showIcon || iconOnly" :icon="faWhatsapp" />
+    <font-awesome-icon v-if="showIcon || iconOnly" icon="fa-brands fa-whatsapp" />
     <slot v-if="!iconOnly">Comunidade Whatsapp</slot>
   </button>
 </template>

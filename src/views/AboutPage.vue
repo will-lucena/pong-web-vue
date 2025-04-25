@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import CustomImage from '@/components/CustomImage.vue'
+</script>
 
 <template>
   <main class="container">
@@ -50,7 +52,7 @@
 
       <div class="staff_container">
         <div v-for="n in 10" :key="n">
-          <img src="https://placehold.co/242" alt="" />
+          <CustomImage src="https://placehold.co/242" alt="Staff member" :aspect-ratio="1" />
           <p>???</p>
         </div>
       </div>
@@ -91,11 +93,6 @@ section div {
   text-align: center;
 }
 
-.staff_container img {
-  width: var(--staff-image-size);
-  height: var(--staff-image-size);
-}
-
 @media screen and (max-width: 1400px) {
   .container {
     padding: var(--space-3xl) var(--container-laptop);
@@ -105,27 +102,20 @@ section div {
 @media screen and (max-width: 1200px) {
   .container {
     padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-3xl);
   }
 }
 
 @media screen and (max-width: 992px) {
   .container {
     padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-2xl);
   }
 }
 
 @media screen and (max-width: 768px) {
   .container {
     padding: var(--space-mobile-3xl) var(--container-mobile);
-    gap: var(--space-mobile-4xl);
-  }
-
-  .about {
-    gap: var(--space-mobile-4xl);
-  }
-
-  section div {
-    gap: var(--space-mobile-lg);
   }
 
   .staff_container {

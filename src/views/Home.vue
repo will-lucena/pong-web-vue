@@ -2,10 +2,12 @@
 import { ref, onMounted } from 'vue'
 import Card from '@/components/card/Card.vue'
 import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
+import CustomImage from '@/components/CustomImage.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const isLoading = ref(true)
 const recentPosts = ref([])
+const isImageLoading = ref(true)
 
 onMounted(async () => {
   // Simulate API call
@@ -24,6 +26,13 @@ onMounted(async () => {
   ]
   isLoading.value = false
 })
+
+// Simulate image loading delay
+function handleImageLoad(event) {
+  setTimeout(() => {
+    isImageLoading.value = false
+  }, 2000) // 2 second delay
+}
 
 function handlePostClick(post) {
   console.log('Recent post clicked:', post.title)
@@ -44,7 +53,14 @@ function handlePostClick(post) {
         </div>
         <WhatsAppButton :show-icon="false" full-width> Juntar-se a Comunidade </WhatsAppButton>
       </div>
-      <img class="presentation_image" src="https://placehold.co/540x510" alt="" />
+      <CustomImage
+        class="presentation_image"
+        src="https://placehold.co/540x510"
+        alt="Potiguar Indie Games Presentation"
+        :aspect-ratio="1.05"
+        :loading="isImageLoading"
+        @load="handleImageLoad"
+      />
     </section>
 
     <section class="posts">
@@ -226,7 +242,6 @@ function handlePostClick(post) {
 
   .presentation_image {
     width: 100%;
-    height: auto;
   }
 
   .posts {

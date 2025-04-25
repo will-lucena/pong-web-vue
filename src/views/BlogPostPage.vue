@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import CustomImage from '@/components/CustomImage.vue'
+</script>
 
 <template>
   <article class="container">
@@ -7,7 +9,11 @@
       Nulla risus magna.
     </h1>
 
-    <img src="https://placehold.co/1200x550" alt="" />
+    <CustomImage
+      src="https://placehold.co/1200x550"
+      alt="Blog post hero image"
+      :aspect-ratio="2.18"
+    />
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam posuere accumsan dignissim.
       Nulla risus magna, pulvinar dictum euismod at, maximus sit amet eros. Morbi tempor pharetra
@@ -46,10 +52,6 @@
   gap: var(--space-4xl);
 }
 
-.container img {
-  border-radius: var(--radius-xl);
-}
-
 .container a {
   color: var(--text-heading);
   text-decoration: none;
@@ -69,12 +71,14 @@
 @media screen and (max-width: 1200px) {
   .container {
     padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-3xl);
   }
 }
 
 @media screen and (max-width: 992px) {
   .container {
     padding: var(--space-3xl) var(--container-laptop);
+    gap: var(--space-2xl);
   }
 }
 

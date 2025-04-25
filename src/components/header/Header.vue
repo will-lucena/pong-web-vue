@@ -2,12 +2,18 @@
 import { quickLinks } from '@/config/navigation'
 import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
 import HamburgerMenu from '@/components/navigation/HamburgerMenu.vue'
+import CustomImage from '@/components/CustomImage.vue'
 </script>
 
 <template>
   <header class="header">
     <router-link to="/">
-      <img src="/src/assets/logomarca.png" alt="" width="190" height="60" />
+      <CustomImage
+        src="/src/assets/logomarca.png"
+        alt="Pong Logo"
+        :aspect-ratio="3.17"
+        class="logo"
+      />
     </router-link>
     <nav class="desktop_nav">
       <ul class="nav_list">
@@ -68,7 +74,7 @@ import HamburgerMenu from '@/components/navigation/HamburgerMenu.vue'
   color: var(--color-primary);
 }
 
-.header img {
+.logo {
   width: var(--logo-width);
   height: var(--logo-height);
 }

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps({
   src: {
@@ -83,8 +83,8 @@ const isLoading = computed(() => props.loading || isImageLoading.value)
 }
 
 .image {
-  width: 100%;
-  height: 100%;
+  width: 242px;
+  height: 242px;
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.3s ease;

@@ -8,6 +8,7 @@ const posts = ref([])
 onMounted(async () => {
   // Simulate API call
   await new Promise((resolve) => setTimeout(resolve, 2000))
+  /*
   posts.value = [
     {
       id: 1,
@@ -19,6 +20,7 @@ onMounted(async () => {
     },
     // ... more posts
   ]
+  */
   isLoading.value = false
 })
 
@@ -31,17 +33,7 @@ function handlePostClick(post) {
 <template>
   <section class="container">
     <h1>Blog</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam posuere accumsan dignissim.
-      Nulla risus magna, pulvinar dictum euismod at, maximus sit amet eros. Morbi tempor pharetra
-      dolor vitae condimentum. Mauris eget dignissim nisi, maximus rutrum magna. Duis porttitor
-      gravida metus, ut egestas neque suscipit a. Curabitur congue nulla arcu, ut fermentum tortor
-      sodales in. Phasellus fringilla ipsum a velit dignissim, quis condimentum urna porta.
-      Phasellus risus eros, volutpat non massa quis, imperdiet laoreet nisl. Nunc suscipit diam quis
-      feugiat fermentum. Morbi magna tellus, dignissim non ornare et, efficitur et nunc. Duis
-      ultricies eros varius velit pulvinar finibus. Nullam feugiat venenatis erat, in venenatis
-      lorem iaculis non.
-    </p>
+    <p>Artigos, noticias e novidades relacionadas a comunidade</p>
     <ul class="posts_list">
       <template v-if="isLoading">
         <li v-for="n in 6" :key="n" class="list_item">

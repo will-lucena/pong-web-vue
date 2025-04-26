@@ -12,6 +12,7 @@ const isImageLoading = ref(true)
 onMounted(async () => {
   // Simulate API call
   await new Promise((resolve) => setTimeout(resolve, 2000))
+  /*
   recentPosts.value = [
     {
       id: 1,
@@ -24,6 +25,7 @@ onMounted(async () => {
     },
     // ... more posts
   ]
+  */
   isLoading.value = false
 })
 

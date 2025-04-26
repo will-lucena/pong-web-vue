@@ -1,13 +1,15 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import Card from '@/components/card/Card.vue'
 import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
+import Card from '@/components/card/Card.vue'
 import CustomImage from '@/components/CustomImage.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { onMounted, ref } from 'vue'
 
 const isLoading = ref(true)
 const recentPosts = ref([])
 const isImageLoading = ref(true)
+
+import image from '/src/assets/image.jpg'
 
 onMounted(async () => {
   // Simulate API call
@@ -40,6 +42,10 @@ function handlePostClick(post) {
   console.log('Recent post clicked:', post.title)
   // Add any additional click handling logic here
 }
+
+function imageWithFallback(src) {
+  return src || 'https://placehold.co/540x510'
+}
 </script>
 
 <template>
@@ -57,7 +63,7 @@ function handlePostClick(post) {
       </div>
       <CustomImage
         class="presentation_image"
-        src="https://placehold.co/540x510"
+        :src="imageWithFallback(image)"
         alt="Potiguar Indie Games Presentation"
         :aspect-ratio="1.05"
         :loading="isImageLoading"

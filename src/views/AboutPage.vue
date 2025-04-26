@@ -80,8 +80,9 @@ function imageWithFallback(src) {
             :src="imageWithFallback(member.image)"
             alt="Staff member"
             :aspect-ratio="1"
-            width="242"
-            height="242"
+            width="242px"
+            height="242px"
+            class="custom_image"
           />
           <p>{{ member.name }}</p>
         </div>
@@ -91,6 +92,12 @@ function imageWithFallback(src) {
 </template>
 
 <style lang="css" scoped>
+.custom_image {
+  border-radius: var(--radius-md);
+  width: 242px;
+  height: 242px;
+}
+
 .container {
   background: var(--bg-primary);
   min-height: 100vh;

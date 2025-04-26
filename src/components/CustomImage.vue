@@ -83,8 +83,8 @@ const isLoading = computed(() => props.loading || isImageLoading.value)
 }
 
 .image {
-  width: 242px;
-  height: 242px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.3s ease;

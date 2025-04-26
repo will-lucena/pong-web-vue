@@ -3,10 +3,19 @@ import { quickLinks } from '@/config/navigation'
 import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
 import HamburgerMenu from '@/components/navigation/HamburgerMenu.vue'
 import CustomImage from '@/components/CustomImage.vue'
+
+const props = defineProps({
+  isOpen: {
+    type: Boolean,
+    required: true,
+  },
+})
+
+const emit = defineEmits(['update:isOpen'])
 </script>
 
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'header--no-shadow': isOpen }">
     <router-link to="/">
       <CustomImage
         src="/src/assets/logomarca.png"
@@ -25,13 +34,22 @@ import CustomImage from '@/components/CustomImage.vue'
     <div class="actions">
       <WhatsAppButton :icon-only="true" class="mobile_whatsapp" />
       <WhatsAppButton class="desktop_whatsapp" />
-      <HamburgerMenu />
+      <HamburgerMenu
+        v-model:isOpen="props.isOpen"
+        @update:isOpen="(val) => emit('update:isOpen', val)"
+      />
     </div>
   </header>
 </template>
 
 <style scoped lang="css">
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+
   box-shadow: 0 10px 48px 0 var(--shadow-header);
   filter: drop-shadow(0 0 0 var(--color-black));
   background: var(--bg-primary);
@@ -43,6 +61,11 @@ import CustomImage from '@/components/CustomImage.vue'
   gap: var(--space-sm);
 
   padding: var(--space-3xl) var(--container-desktop);
+}
+
+.header--no-shadow {
+  box-shadow: none;
+  filter: none;
 }
 
 .nav_list {

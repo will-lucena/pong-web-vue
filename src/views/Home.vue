@@ -44,7 +44,7 @@ function handlePostClick(post) {
   <main class="main">
     <section class="presentation">
       <div class="presentation_content">
-        <div>
+        <div class="presentation_content">
           <h1 class="hero">Potiguar Indie Games</h1>
           <h3>
             Grupo de desenvolvedores de jogos do Rio Grande do Norte, ajude a consolidar o cenário

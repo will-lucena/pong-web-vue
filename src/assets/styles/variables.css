@@ -125,4 +125,9 @@
   --spinner-border: 5px;
   --error-container-height: 400px;
   --error-content-width: 500px;
+
+  /* Header Heights */
+  --header-height-mobile: 120px;
+  --header-height-tablet: 160px;
+  --header-height-desktop: 200px;
 }

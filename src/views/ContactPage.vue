@@ -1,16 +1,41 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const isLoading = ref(false)
+
+const handleSubmit = (event) => {
+  event.preventDefault()
+  isLoading.value = true
+
+  const formData = new FormData(event.target)
+  const name = formData.get('name')
+  const email = formData.get('email')
+  const message = formData.get('message')
+
+  const subject = `Contato de ${name}`
+  const body = `Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${message}`
+
+  const mailtoLink = `mailto:pongrnbr@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  window.location.href = mailtoLink
+
+  // Wait for 1 second before refreshing to ensure mailto link opens
+  setTimeout(() => {
+    window.location.reload()
+  }, 1000)
+}
+</script>
 
 <template>
   <section class="container">
     <h1>Entre em contato</h1>
-    <form class="contact_form">
+    <form class="contact_form" @submit="handleSubmit">
       <div class="form_group">
         <label for="name">Nome</label>
-        <input type="text" id="name" name="name" placeholder="Insira seu Nome aqui" />
+        <input type="text" id="name" name="name" placeholder="Insira seu Nome aqui" required />
       </div>
       <div class="form_group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Insira seu Email aqui" />
+        <input type="email" id="email" name="email" placeholder="Insira seu Email aqui" required />
       </div>
       <div class="form_group">
         <label for="message">Mensagem</label>
@@ -19,9 +44,13 @@
           name="message"
           rows="5"
           placeholder="Insira aqui a mensagem que deseja enviar"
+          required
         ></textarea>
       </div>
-      <button type="submit" class="submit_button">Enviar</button>
+      <button type="submit" class="submit_button" :disabled="isLoading">
+        <span v-if="isLoading" class="loading_spinner"></span>
+        {{ isLoading ? 'Enviando...' : 'Enviar' }}
+      </button>
     </form>
   </section>
 </template>
@@ -101,6 +130,59 @@
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  transition: all 0.3s ease;
+}
+
+.submit_button:disabled {
+  background: var(--color-primary-light);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.loading_spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-white);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mailto_section {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+.mailto_section p {
+  font-family: var(--font-secondary);
+  font-size: var(--text-lg);
+  color: var(--text-body);
+  margin-bottom: var(--space-sm);
+}
+
+.mailto_link {
+  font-family: var(--font-primary);
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mailto_link:hover {
+  color: var(--color-primary-dark);
 }
 
 @media screen and (max-width: 1400px) {
@@ -157,6 +239,18 @@
 
   .submit_button {
     padding: var(--space-mobile-lg);
+  }
+
+  .mailto_section {
+    margin-top: var(--space-mobile-xl);
+  }
+
+  .mailto_section p {
+    font-size: var(--text-base);
+  }
+
+  .mailto_link {
+    font-size: var(--text-lg);
   }
 }
 

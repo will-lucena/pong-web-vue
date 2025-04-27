@@ -1,7 +1,6 @@
 <script setup>
 import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
 import Card from '@/components/card/Card.vue'
-import CustomImage from '@/components/CustomImage.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { onMounted, ref } from 'vue'
 
@@ -61,14 +60,8 @@ function imageWithFallback(src) {
         </div>
         <WhatsAppButton :show-icon="false" full-width> Juntar-se a Comunidade </WhatsAppButton>
       </div>
-      <CustomImage
-        class="presentation_image"
-        :src="imageWithFallback(image)"
-        alt="Potiguar Indie Games Presentation"
-        :aspect-ratio="1.05"
-        :loading="isImageLoading"
-        @load="handleImageLoad"
-      />
+
+      <img :src="image" alt="Aniversário Pong" class="presentation_image" />
     </section>
 
     <section class="posts">
@@ -127,6 +120,9 @@ function imageWithFallback(src) {
   border: none;
   border-radius: var(--radius-lg);
   box-shadow: 0px 5px 30.2px 0px var(--shadow-image);
+  max-width: 50%;
+  object-fit: cover;
+  height: auto;
 }
 
 .posts {
@@ -249,6 +245,7 @@ function imageWithFallback(src) {
   }
 
   .presentation_image {
+    max-width: 100%;
     width: 100%;
   }
 

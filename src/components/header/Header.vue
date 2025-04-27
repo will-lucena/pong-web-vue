@@ -2,7 +2,8 @@
 import { quickLinks } from '@/config/navigation'
 import WhatsAppButton from '@/components/buttons/WhatsAppButton.vue'
 import HamburgerMenu from '@/components/navigation/HamburgerMenu.vue'
-import CustomImage from '@/components/CustomImage.vue'
+
+import logomarca from '@/assets/logomarca.png'
 
 const props = defineProps({
   isOpen: {
@@ -17,12 +18,7 @@ const emit = defineEmits(['update:isOpen'])
 <template>
   <header class="header" :class="{ 'header--no-shadow': isOpen }">
     <router-link to="/">
-      <CustomImage
-        src="/src/assets/logomarca.png"
-        alt="Pong Logo"
-        :aspect-ratio="3.17"
-        class="logo"
-      />
+      <img :src="logomarca" alt="Pong Logo" width="190" height="60" />
     </router-link>
     <nav class="desktop_nav">
       <ul class="nav_list">
@@ -95,11 +91,6 @@ const emit = defineEmits(['update:isOpen'])
 .nav_list__item a:hover,
 .nav_list__item a.router-link-active {
   color: var(--color-primary);
-}
-
-.logo {
-  width: var(--logo-width);
-  height: var(--logo-height);
 }
 
 .actions {

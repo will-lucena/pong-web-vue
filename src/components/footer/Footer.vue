@@ -1,7 +1,6 @@
 <script setup>
 import { quickLinks, socialMediaLinks } from '@/config/navigation'
-import CustomImage from '@/components/CustomImage.vue'
-
+import logo from '@/assets/logo.png'
 const firstColumnSocial = socialMediaLinks.slice(0, 4)
 const secondColumnSocial = socialMediaLinks.slice(4)
 </script>
@@ -47,7 +46,7 @@ const secondColumnSocial = socialMediaLinks.slice(4)
       </div>
     </section>
     <section class="copyright">
-      <CustomImage src="/src/assets/logo.png" alt="Pong Logo" :aspect-ratio="0.88" class="logo" />
+      <img :src="logo" alt="Pong Logo" width="43" height="49" />
       <div class="copyright__content">
         <h3>Pong</h3>
         <p>Copyright © 2025 PONG - Potiguar Indie Games.</p>

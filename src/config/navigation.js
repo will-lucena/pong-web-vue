@@ -2,7 +2,7 @@ export const quickLinks = [
   { label: 'Inicio', link: '/' },
   { label: 'Sobre', link: '/about' },
   { label: 'Blog', link: '/blog' },
-  { label: 'Contato', link: '/contact' },
+  //{ label: 'Contato', link: '/contact' },
 ]
 
 export const socialMediaLinks = [

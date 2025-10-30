@@ -5,6 +5,7 @@ import Home from '@/views/Home.vue'
 import AboutPage from '@/views/AboutPage.vue'
 import BlogPage from '@/views/BlogPage.vue'
 import BlogPostPage from '@/views/BlogPostPage.vue'
+import LeadsPage from '@/views/LeadsPage.vue'
 //import ContactPage from '@/views/ContactPage.vue'
 import NotFound from '@/views/NotFound.vue'
 
@@ -41,6 +42,11 @@ const router = createRouter({
       path: '/blog/:id',
       name: 'blog-post',
       component: BlogPostPage,
+    },
+    {
+      path: '/leads',
+      name: 'leads',
+      component: LeadsPage,
     },
     /* {
       path: '/contact',

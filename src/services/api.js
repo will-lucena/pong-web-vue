@@ -29,8 +29,23 @@ const mockPosts = [
   // Add more mock posts as needed
 ]
 
+const mockLeads = [
+  { id: 1, name: 'John Doe', email: 'john@example.com', company: 'Example Inc.', message: 'Hello, world!', pong_member: false },
+  { id: 2, name: 'Jane Smith', email: 'jane@example.com', company: 'Example Corp.', message: 'Hello, world!', pong_member: true },
+  // Add more mock leads as needed
+]
+
 // Mock API service
 export const mockApi = {
+  // Leads
+  createLead: (payload) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ data: payload })
+      }, 500)
+    })
+  },
+
   getUsers: () => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -70,17 +85,17 @@ export const realApi = {
     return api.post('/leads', payload)
   },
 
-  getUsers: () => {
-    return api.get('/users')
-  },
+  // getUsers: () => {
+  //   return api.get('/users')
+  // },
 
-  getUserById: (id) => {
-    return api.get(`/users/${id}`)
-  },
+  // getUserById: (id) => {
+  //   return api.get(`/users/${id}`)
+  // },
 
-  getPosts: () => {
-    return api.get('/posts')
-  },
+  // getPosts: () => {
+  //   return api.get('/posts')
+  // },
 
   // Add more real API methods as needed
 }

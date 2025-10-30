@@ -6,6 +6,7 @@ import AboutPage from '@/views/AboutPage.vue'
 import BlogPage from '@/views/BlogPage.vue'
 import BlogPostPage from '@/views/BlogPostPage.vue'
 import LeadsPage from '@/views/LeadsPage.vue'
+import LeadsReportPage from '@/views/LeadsReportPage.vue'
 //import ContactPage from '@/views/ContactPage.vue'
 import NotFound from '@/views/NotFound.vue'
 
@@ -47,6 +48,11 @@ const router = createRouter({
       path: '/leads',
       name: 'leads',
       component: LeadsPage,
+    },
+    {
+      path: '/leads/report',
+      name: 'leads-report',
+      component: LeadsReportPage,
     },
     /* {
       path: '/contact',

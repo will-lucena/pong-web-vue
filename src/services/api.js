@@ -16,6 +16,32 @@ const api = axios.create({
   },
 })
 
+// Store token for Bearer authentication
+let authToken = null
+
+// Function to set the authentication token
+export function setAuthToken(token) {
+  authToken = token
+  if (token) {
+    api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+  } else {
+    delete api.defaults.headers.common['Authorization']
+  }
+}
+
+// Axios interceptor to add Authorization header
+api.interceptors.request.use(
+  (config) => {
+    if (authToken) {
+      config.headers.Authorization = `Bearer ${authToken}`
+    }
+    return config
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
+)
+
 // Mock data
 const mockUsers = [
   { id: 1, name: 'John Doe', email: 'john@example.com' },
@@ -30,8 +56,24 @@ const mockPosts = [
 ]
 
 const mockLeads = [
-  { id: 1, name: 'John Doe', email: 'john@example.com', company: 'Example Inc.', message: 'Hello, world!', pong_member: false },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com', company: 'Example Corp.', message: 'Hello, world!', pong_member: true },
+  {
+    id: 1,
+    name: 'John Doe',
+    email: 'john@example.com',
+    company: 'Example Inc.',
+    message: 'Hello, world!',
+    pong_member: false,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 2,
+    name: 'Jane Smith',
+    email: 'jane@example.com',
+    company: 'Example Corp.',
+    message: 'Hello, world!',
+    pong_member: true,
+    created_at: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
+  },
   // Add more mock leads as needed
 ]
 
@@ -41,7 +83,21 @@ export const mockApi = {
   createLead: (payload) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({ data: payload })
+        const newLead = {
+          id: mockLeads.length + 1,
+          ...payload,
+          created_at: new Date().toISOString(),
+        }
+        mockLeads.unshift(newLead) // Add to beginning of array
+        resolve({ data: newLead })
+      }, 500)
+    })
+  },
+
+  getLeads: () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ data: mockLeads })
       }, 500)
     })
   },
@@ -85,6 +141,13 @@ export const realApi = {
     return api.post('/leads', payload)
   },
 
+  getLeads: (token = null) => {
+    if (token) {
+      setAuthToken(token)
+    }
+    return api.get('/leads')
+  },
+
   // getUsers: () => {
   //   return api.get('/users')
   // },
@@ -102,5 +165,17 @@ export const realApi = {
 
 // Export the appropriate API based on environment
 // You can switch between mock and real API here
-const isUsingMockApi = import.meta?.env?.VITE_USE_MOCK_API === 'true'
+// Set VITE_USE_MOCK_API=true in .env file or environment
+// Note: In Vite, env vars are always strings, so check for string 'true'
+const isUsingMockApi = String(import.meta.env.VITE_USE_MOCK_API || '').toLowerCase() === 'true'
+
 export default isUsingMockApi ? mockApi : realApi
+
+// Log which API is being used for debugging
+if (import.meta.env.DEV) {
+  console.log(
+    '🔌 API Mode:',
+    isUsingMockApi ? 'MOCK' : 'REAL',
+    `(VITE_USE_MOCK_API=${import.meta.env.VITE_USE_MOCK_API})`
+  )
+}

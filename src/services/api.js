@@ -1,8 +1,15 @@
 import axios from 'axios'
 
+// Resolve API base URL
+const resolvedBaseUrl =
+  import.meta?.env?.VITE_API_BASE_URL ||
+  (typeof window !== 'undefined' && window.location.hostname === 'localhost'
+    ? 'http://localhost:3000/api/v1'
+    : 'https://api.pongrn.com.br/api/v1')
+
 // Create an axios instance with default config
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'https://api.example.com',
+  baseURL: resolvedBaseUrl,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -58,6 +65,11 @@ export const mockApi = {
 
 // Real API service (will use axios)
 export const realApi = {
+  // Leads
+  createLead: (payload) => {
+    return api.post('/leads', payload)
+  },
+
   getUsers: () => {
     return api.get('/users')
   },
@@ -75,5 +87,5 @@ export const realApi = {
 
 // Export the appropriate API based on environment
 // You can switch between mock and real API here
-const isUsingMockApi = process.env.REACT_APP_USE_MOCK_API === 'true' || true
+const isUsingMockApi = import.meta?.env?.VITE_USE_MOCK_API === 'true'
 export default isUsingMockApi ? mockApi : realApi

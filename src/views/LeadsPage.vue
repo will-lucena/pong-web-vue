@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import api from '@/services/api.js'
 
 const name = ref('')
 const email = ref('')
@@ -33,23 +34,24 @@ async function handleSubmit(e) {
   if (!validate()) return
   isSubmitting.value = true
   try {
-    // Simulate API submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
     const payload = {
       name: name.value,
       email: email.value,
       company: company.value,
       message: message.value,
-      knowsPong: knowsPong.value,
-      createdAt: new Date().toISOString(),
+      pong_member: knowsPong.value,
     }
-    console.log('Lead submitted:', payload)
+    await api.createLead(payload)
     submitted.value = true
     name.value = ''
     email.value = ''
     company.value = ''
     message.value = ''
     knowsPong.value = false
+  } catch (err) {
+    console.error('Failed to submit lead', err)
+    // Surface a simple error state
+    submitted.value = false
   } finally {
     isSubmitting.value = false
   }

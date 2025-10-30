@@ -10,6 +10,8 @@ const knowsPong = ref(false)
 
 const isSubmitting = ref(false)
 const submitted = ref(false)
+const successMessage = ref('')
+const errorMessage = ref('')
 const errors = ref({ name: '', email: '' })
 
 function validate() {
@@ -43,15 +45,18 @@ async function handleSubmit(e) {
     }
     await api.createLead(payload)
     submitted.value = true
+    successMessage.value = 'Obrigado! Recebemos seu contato.'
+    errorMessage.value = ''
     name.value = ''
     email.value = ''
     company.value = ''
     message.value = ''
     knowsPong.value = false
   } catch (err) {
-    console.error('Failed to submit lead', err)
-    // Surface a simple error state
+    console.error('Failed to submit lead', err.response.data[0].detail)
     submitted.value = false
+    successMessage.value = ''
+    errorMessage.value = `Não foi possível enviar seu contato. ${err.response.data[0].detail}`
   } finally {
     isSubmitting.value = false
   }
@@ -60,8 +65,17 @@ async function handleSubmit(e) {
 
 <template>
   <section class="container">
-    <h1>Leads</h1>
-    <p>Preencha o formulário para entrar em contato.</p>
+    <h1>Preencha o formulário para entrar em contato.</h1>
+
+    <div v-if="successMessage" class="alert alert-success">
+      <span>{{ successMessage }}</span>
+      <button type="button" class="alert_close" @click="successMessage = ''">×</button>
+    </div>
+
+    <div v-if="errorMessage" class="alert alert-error">
+      <span>{{ errorMessage }}</span>
+      <button type="button" class="alert_close" @click="errorMessage = ''">×</button>
+    </div>
 
     <form class="form" @submit="handleSubmit">
       <div class="field">
@@ -95,7 +109,7 @@ async function handleSubmit(e) {
         {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
       </button>
 
-      <p v-if="submitted" class="success">Obrigado! Recebemos seu contato.</p>
+      <p v-if="submitted && !successMessage" class="success">Obrigado! Recebemos seu contato.</p>
     </form>
   </section>
 </template>
@@ -118,6 +132,36 @@ async function handleSubmit(e) {
   gap: var(--space-lg);
   max-width: 720px;
   width: 100%;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+}
+
+.alert-success {
+  background: rgba(42, 127, 42, 0.1);
+  color: var(--color-success, #2a7f2a);
+  border-color: var(--color-success, #2a7f2a);
+}
+
+.alert-error {
+  background: rgba(211, 51, 51, 0.1);
+  color: var(--color-danger, #d33);
+  border-color: var(--color-danger, #d33);
+}
+
+.alert_close {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: var(--text-lg);
 }
 
 .field {

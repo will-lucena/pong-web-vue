@@ -53,10 +53,10 @@ async function handleSubmit(e) {
     message.value = ''
     knowsPong.value = false
   } catch (err) {
-    console.error('Failed to submit lead', err.response.data[0].detail)
+    console.error('Failed to submit lead', err.response?.data?.[0]?.detail)
     submitted.value = false
     successMessage.value = ''
-    errorMessage.value = `Não foi possível enviar seu contato. ${err.response.data[0].detail}`
+    errorMessage.value = `Não foi possível enviar seu contato. ${err.response?.data?.[0]?.detail}`
   } finally {
     isSubmitting.value = false
   }
@@ -69,12 +69,12 @@ async function handleSubmit(e) {
 
     <div v-if="successMessage" class="alert alert-success">
       <span>{{ successMessage }}</span>
-      <button type="button" class="alert_close" @click="successMessage = ''">×</button>
+      <button type="button" class="alert_close" @click="successMessage = ''"  aria-label="Fechar mensagem">×</button>
     </div>
 
     <div v-if="errorMessage" class="alert alert-error">
       <span>{{ errorMessage }}</span>
-      <button type="button" class="alert_close" @click="errorMessage = ''">×</button>
+      <button type="button" class="alert_close" @click="errorMessage = ''" aria-label="Fechar mensagem">×</button>
     </div>
 
     <form class="form" @submit="handleSubmit">
@@ -108,8 +108,6 @@ async function handleSubmit(e) {
       <button class="submit" type="submit" :disabled="isSubmitting">
         {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
       </button>
-
-      <p v-if="submitted && !successMessage" class="success">Obrigado! Recebemos seu contato.</p>
     </form>
   </section>
 </template>

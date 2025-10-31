@@ -145,7 +145,7 @@ export const realApi = {
     if (token) {
       setAuthToken(token)
     }
-    return api.get('/leads/report')
+    return api.get('/leads')
   },
 
   // getUsers: () => {

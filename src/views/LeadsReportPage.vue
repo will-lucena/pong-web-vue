@@ -100,23 +100,23 @@ function formatDate(dateString) {
     </div>
 
     <ul v-else-if="hasToken && leads.length > 0" class="leads-list">
-      <li v-for="lead in leads" :key="lead.id" class="lead-item">
+      <li v-for="{id, attributes} in leads" :key="id" class="lead-item">
         <div class="lead-header">
-          <h3 class="lead-name">{{ lead.name }}</h3>
-          <span v-if="lead.pong_member" class="badge badge-member">Membro PONG</span>
+          <h3 class="lead-name">{{ attributes.name }}</h3>
+          <span v-if="attributes.pong_member" class="badge badge-member">Membro PONG</span>
         </div>
         <div class="lead-details">
           <p class="lead-email">
-            <strong>Email:</strong> {{ lead.email }}
+            <strong>Email:</strong> {{ attributes.email }}
           </p>
-          <p v-if="lead.company" class="lead-company">
-            <strong>Empresa:</strong> {{ lead.company }}
+          <p v-if="attributes.company" class="lead-company">
+            <strong>Empresa:</strong> {{ attributes.company }}
           </p>
-          <p v-if="lead.message" class="lead-message">
-            <strong>Mensagem:</strong> {{ lead.message }}
+          <p v-if="attributes.message" class="lead-message">
+            <strong>Mensagem:</strong> {{ attributes.message }}
           </p>
-          <p v-if="lead.created_at" class="lead-date">
-            <strong>Data:</strong> {{ formatDate(lead.created_at) }}
+          <p v-if="attributes.created_at" class="lead-date">
+            <strong>Data:</strong> {{ formatDate(attributes.created_at) }}
           </p>
         </div>
       </li>

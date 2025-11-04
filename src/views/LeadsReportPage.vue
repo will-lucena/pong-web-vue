@@ -19,7 +19,7 @@ async function handleTokenSubmit(e) {
   errorMessage.value = ''
   try {
     const response = await api.getLeads(token.value.trim())
-    leads.value = response.data || []
+    leads.value = response.data.data || []
     hasToken.value = true
   } catch (err) {
     console.error('Failed to fetch leads', err)

@@ -55,27 +55,47 @@ const mockPosts = [
   // Add more mock posts as needed
 ]
 
-const mockLeads = [
+const mockLeads =
   {
-    id: 1,
-    name: 'John Doe',
-    email: 'john@example.com',
-    company: 'Example Inc.',
-    message: 'Hello, world!',
-    pong_member: false,
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    email: 'jane@example.com',
-    company: 'Example Corp.',
-    message: 'Hello, world!',
-    pong_member: true,
-    created_at: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
-  },
-  // Add more mock leads as needed
-]
+    "data": [
+        {
+            "id": "1",
+            "type": "lead",
+            "attributes": {
+                "name": "William Lucena",
+                "email": "will.lucen4@gmail.com",
+                "company": "",
+                "pong_member": true,
+                "message": "",
+                "created_at": "2025-10-30T20:02:00Z"
+            }
+        },
+        {
+            "id": "2",
+            "type": "lead",
+            "attributes": {
+                "name": "Will",
+                "email": "williamaster1@gmail.com",
+                "company": "WL",
+                "pong_member": false,
+                "message": "oi oi",
+                "created_at": "2025-10-30T21:48:38Z"
+            }
+        },
+        {
+            "id": "3",
+            "type": "lead",
+            "attributes": {
+                "name": "Klébia",
+                "email": "klebiakarinalc@gmail.com",
+                "company": "Nexus",
+                "pong_member": false,
+                "message": "Como a comunidade pode me ajudar?",
+                "created_at": "2025-10-30T21:53:06Z"
+            }
+        }
+    ]
+}
 
 // Mock API service
 export const mockApi = {
@@ -88,7 +108,7 @@ export const mockApi = {
           ...payload,
           created_at: new Date().toISOString(),
         }
-        mockLeads.unshift(newLead) // Add to beginning of array
+        mockLeads.data.unshift(newLead) // Add to beginning of array
         resolve({ data: newLead })
       }, 500)
     })

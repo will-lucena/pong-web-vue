@@ -65,7 +65,9 @@ async function handleSubmit(e) {
 
 <template>
   <section class="container">
-    <h1>Preencha o formulário para entrar em contato.</h1>
+    <h1 class="title">Estamos em processo de formalização da comunidade, gostaria de saber mais e fazer parte?</h1>
+    <h2>Preencha o formulário para entrarmos em contato.</h2>
+    <p>Será um prazer receber você na comunidade!</p>
 
     <div v-if="successMessage" class="alert alert-success">
       <span>{{ successMessage }}</span>
@@ -79,13 +81,13 @@ async function handleSubmit(e) {
 
     <form class="form" @submit="handleSubmit">
       <div class="field">
-        <label for="name">Nome</label>
+        <label for="name">Nome (obrigatório)</label>
         <input id="name" type="text" v-model="name" :disabled="isSubmitting" />
         <span v-if="errors.name" class="error">{{ errors.name }}</span>
       </div>
 
       <div class="field">
-        <label for="email">Email</label>
+        <label for="email">Email (obrigatório)</label>
         <input id="email" type="email" v-model="email" :disabled="isSubmitting" />
         <span v-if="errors.email" class="error">{{ errors.email }}</span>
       </div>
@@ -116,12 +118,16 @@ async function handleSubmit(e) {
 .container {
   background: var(--bg-primary);
   min-height: 100vh;
-  padding: var(--space-3xl) var(--container-desktop);
+  padding: 0 var(--container-desktop);
   display: flex;
   flex-direction: column;
   gap: var(--space-4xl);
   align-items: center;
   justify-content: center;
+}
+
+h1.title {
+  text-align: center;
 }
 
 .form {

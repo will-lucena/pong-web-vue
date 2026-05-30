@@ -1,12 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 //import LoadingSpinner from '@/components/LoadingSpinner.vue'
 //import ErrorComponent from '@/components/ErrorComponent.vue'
-import Home from '@/views/Home.vue'
 import AboutPage from '@/views/AboutPage.vue'
 import BlogPage from '@/views/BlogPage.vue'
 import BlogPostPage from '@/views/BlogPostPage.vue'
-import LeadsPage from '@/views/LeadsPage.vue'
-import LeadsReportPage from '@/views/LeadsReportPage.vue'
+import Home from '@/views/Home.vue'
 //import ContactPage from '@/views/ContactPage.vue'
 import NotFound from '@/views/NotFound.vue'
 
@@ -44,16 +42,16 @@ const router = createRouter({
       name: 'blog-post',
       component: BlogPostPage,
     },
-    {
-      path: '/leads',
-      name: 'leads',
-      component: LeadsPage,
-    },
-    {
-      path: '/leads/report',
-      name: 'leads-report',
-      component: LeadsReportPage,
-    },
+    // {
+    //   path: '/leads',
+    //   name: 'leads',
+    //   component: LeadsPage,
+    // },
+    // {
+    //   path: '/leads/report',
+    //   name: 'leads-report',
+    //   component: LeadsReportPage,
+    // },
     /* {
       path: '/contact',
       name: 'contact',
